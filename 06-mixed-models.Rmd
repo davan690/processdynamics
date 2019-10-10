@@ -1,6 +1,6 @@
-# Introduction {#intro}
+# Mixed regression models {#mixed}
 
-## Mixed models {.tabset}
+## Models {.tabset}
 
 Mixed models essentially start with sample mean differences between groups and then add additional complexity in favour of poor fitting models.
 
