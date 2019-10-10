@@ -14,3 +14,7 @@ bookdown::pdf_book:
   citation_package: natbib
   keep_tex: yes
 bookdown::epub_book: default
+bookdown::word_document2: default
+bookdown::html_document2:
+  df_print: paged
+  always_allow_html: yes
