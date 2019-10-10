@@ -2,8 +2,12 @@
 
 The first beech forest paper assumes and tests the following process:
 
+$$log(N) = Control + Valley + Rats + Control:Rats$$
+$$r_{j,t} = \beta_{0,s,v,c} + \beta_{1,s,v,c} (S_{j,t})+ \beta_{2,s,v,c} (N_{j,t-1}) + \beta_{3,s,v,c} (R_{j,t-1})$$
 
-$$ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i $$
+## Draft ideas {.tabset}
+
+### v1
 
 ```{r echo=FALSE}
 grViz("
@@ -15,7 +19,7 @@ digraph boxes_and_circles {
   # several 'node' statements
   node [shape = box,
         fontname = Helvetica]
-  b0; b1; b2; error
+  Control; Valley; Rats; 
 
   node [shape = circle,
         fixedsize = true,
@@ -24,6 +28,64 @@ digraph boxes_and_circles {
   
   # several 'edge' statements
   b1->sex; b2->age
+  Control->b1; Valley->b2; Rats->b3
+  Control->Valley
+  Valley->Rats 
+}
+")
+```
+
+### v2
+
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Control; Valley; Rats; 
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  b1; b2; b3 
+  
+  # several 'edge' statements
+  Control->b1; Valley->b2; Rats->b3
+  Control->Valley
+  Valley->Rats 
+}
+")
+```
+
+### v3
+
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Control; Valley; Rats; 
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  sex; age; 
+  
+  # several 'edge' statements
+  b1->sex; b2->age
+  Control->b1; Valley->b2; Rats->b3
+  Control->Valley
+  Valley->Rats 
 }
 ")
 ```
