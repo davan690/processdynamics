@@ -1,5 +1,5 @@
-book_filename: "template-build"
-delete_merged_file: true
+book_filename: "New Zealand Beech Forest Dynamics"
 language:
   ui:
-    chapter_name: "Chapter "
+    chapter_name: " "
+output_dir: "docs"
