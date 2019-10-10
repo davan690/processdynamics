@@ -100,12 +100,3 @@ digraph boxes_and_circles {
 }
 ")
 ```
-
-## Computer processes {.tabset}
-
-### Statistical programming v1
-
-```{r}
-
-```
-

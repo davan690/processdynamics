@@ -1,11 +1,9 @@
-# Introduction {#intro}
+# NZ Beech Forests {#nzbs}
 
-For example you might like to think of a simple statistical ANOVA as:
+The first beech forest paper assumes and tests the following process:
 
-$$ outcome = \beta_0 + \beta_1(treatment_i) + \beta_2(age_i) + error_i $$
-And if this was to be diagramatically represented it could be describled like so with the following descriptions:
 
-... [coming] ...
+$$ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i $$
 
 ```{r echo=FALSE}
 grViz("

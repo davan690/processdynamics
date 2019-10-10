@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Introduction | Diagrams</title>
+  <title> 7 Mixed regression models | Diagrams</title>
   <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Introduction | Diagrams" />
+  <meta property="og:title" content=" 7 Mixed regression models | Diagrams" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Introduction | Diagrams" />
+  <meta name="twitter:title" content=" 7 Mixed regression models | Diagrams" />
   
   <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="nzbs.html"/>
+<link rel="prev" href="likscale.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -188,23 +188,48 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number"> 2</span> Introduction</h1>
-<p>For example you might like to think of a simple statistical ANOVA as:</p>
-<p><span class="math display">\[ outcome = \beta_0 + \beta_1(treatment_i) + \beta_2(age_i) + error_i \]</span>
-And if this was to be diagramatically represented it could be describled like so with the following descriptions:</p>
-<p>… [coming] …</p>
-<div id="htmlwidget-e89425a79d1a40d264d8" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e89425a79d1a40d264d8">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  b0; b1; b2; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  sex; age; \n  \n  # several \"edge\" statements\n  b1->sex; b2->age\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="mixed" class="section level1">
+<h1><span class="header-section-number"> 7</span> Mixed regression models</h1>
+<div id="models" class="section level2 tabset">
+<h2><span class="header-section-number">7.1</span> Models</h2>
+<p>Mixed models essentially start with sample mean differences between groups and then add additional complexity in favour of poor fitting models.</p>
+<p>You can write out models and variable relationships using statistical equations such as <span class="math inline">\(y_i = \beta_0 + \beta_1(x_i)\)</span> where the variables can be collected either through direct questions or transformed data from the orginal questions. What does it look like in a diagram explaining how the variables are proposed to be similar? Example below:</p>
+<div id="constant-only" class="section level3">
+<h3><span class="header-section-number">7.1.1</span> Constant only</h3>
+<p><span class="math display">\[ outcome = \beta_0\]</span></p>
+<div id="htmlwidget-2234d8ee03fd5e68cde2" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-2234d8ee03fd5e68cde2">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; Q2; Q3; Q4; Q5; Q6\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q2->4 Q3->A\n  Q3->D Q5->A Q2->4 Q2->5 Q6->F\n  E->6 4->6 5->7 6->7 3->8\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="single-predictor" class="section level3">
+<h3><span class="header-section-number">7.1.2</span> Single predictor</h3>
+<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i)\]</span></p>
+<div id="htmlwidget-b8254e6f75f1feccc849" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b8254e6f75f1feccc849">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; Q2; Q3; Q4; Q5; Q6\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q2->4 Q3->A\n  Q3->D Q5->A Q2->4 Q2->5 Q6->F\n  E->6 4->6 5->7 6->7 3->8\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="multi-level-v1" class="section level3">
+<h3><span class="header-section-number">7.1.3</span> Multi-level v1</h3>
+<p>For example you might think that generally individuals that …</p>
+<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i \]</span></p>
+<div id="htmlwidget-e00be714cd4a8eeef9ca" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e00be714cd4a8eeef9ca">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  b0; b1; b2; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  sex; age; \n  \n  # several \"edge\" statements\n  b1->sex; b2->age\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="multi-level-v2" class="section level3">
+<h3><span class="header-section-number">7.1.4</span> Multi-level v2</h3>
+<p>For example you might think that generally individuals that …</p>
+<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i \]</span></p>
+<div id="htmlwidget-92b318c8eaa54572a087" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-92b318c8eaa54572a087">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  b0; b1; b2; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  sex; age; \n  \n  # several \"edge\" statements\n  b1->sex; b2->age\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="nzbs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="likscale.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -236,7 +261,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/davan690/processdynamics/docs/edit/master/01-intro.Rmd",
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/06-mixed-models.Rmd",
 "text": "Edit"
 },
 "history": {

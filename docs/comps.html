@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Introduction | Diagrams</title>
+  <title> 4 Software and Hardware | Diagrams</title>
   <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Introduction | Diagrams" />
+  <meta property="og:title" content=" 4 Software and Hardware | Diagrams" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Introduction | Diagrams" />
+  <meta name="twitter:title" content=" 4 Software and Hardware | Diagrams" />
   
   <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="nzbs.html"/>
+<link rel="prev" href="nzbs.html"/>
+<link rel="next" href="sppPro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -188,23 +188,64 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number"> 2</span> Introduction</h1>
-<p>For example you might like to think of a simple statistical ANOVA as:</p>
-<p><span class="math display">\[ outcome = \beta_0 + \beta_1(treatment_i) + \beta_2(age_i) + error_i \]</span>
-And if this was to be diagramatically represented it could be describled like so with the following descriptions:</p>
-<p>… [coming] …</p>
-<div id="htmlwidget-e89425a79d1a40d264d8" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e89425a79d1a40d264d8">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  b0; b1; b2; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  sex; age; \n  \n  # several \"edge\" statements\n  b1->sex; b2->age\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="comps" class="section level1">
+<h1><span class="header-section-number"> 4</span> Software and Hardware</h1>
+<div id="computer-processes" class="section level2 tabset">
+<h2><span class="header-section-number">4.1</span> Computer processes</h2>
+<div id="statistical-programming-v1" class="section level3">
+<h3><span class="header-section-number">4.1.1</span> Statistical programming v1</h3>
+</div>
+<div id="v3" class="section level3">
+<h3><span class="header-section-number">4.1.2</span> v3</h3>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="comps.html#cb1-1"></a>var &lt;-<span class="st"> </span><span class="kw">c</span>(<span class="st">&quot;scale&quot;</span>,<span class="st">&quot;name&quot;</span>,<span class="st">&quot;Q1.1&quot;</span>,<span class="st">&quot;Q1.2&quot;</span>,<span class="st">&quot;Q1.3&quot;</span>,<span class="st">&quot;Q1.4&quot;</span>,<span class="st">&quot;Q2.1&quot;</span>,<span class="st">&quot;Q2.2&quot;</span>,<span class="st">&quot;Q2.3&quot;</span>,<span class="st">&quot;Q2.4&quot;</span>,<span class="st">&quot;Q2.5&quot;</span>,<span class="st">&quot;Q2.6&quot;</span>,<span class="st">&quot;Q2.7&quot;</span>,<span class="st">&quot;Q2.8&quot;</span>,<span class="st">&quot;Q2.9&quot;</span>,<span class="st">&quot;Q2.10&quot;</span>,<span class="st">&quot;Q3.1&quot;</span>,<span class="st">&quot;Q3.2&quot;</span>,<span class="st">&quot;Q3.3&quot;</span>,<span class="st">&quot;Q4.1&quot;</span>,<span class="st">&quot;Q4.2&quot;</span>,<span class="st">&quot;Q5.1&quot;</span>,<span class="st">&quot;Q5.2&quot;</span>,<span class="st">&quot;Q5.3&quot;</span>)</span>
+<span id="cb1-2"><a href="comps.html#cb1-2"></a></span>
+<span id="cb1-3"><a href="comps.html#cb1-3"></a><span class="co"># dat &lt;- read.csv(&quot;./data/overall_dummy_data.csv&quot;)</span></span>
+<span id="cb1-4"><a href="comps.html#cb1-4"></a><span class="co"># glimpse(dat)</span></span>
+<span id="cb1-5"><a href="comps.html#cb1-5"></a></span>
+<span id="cb1-6"><a href="comps.html#cb1-6"></a><span class="kw">grViz</span>(<span class="st">&quot;</span></span>
+<span id="cb1-7"><a href="comps.html#cb1-7"></a><span class="st">digraph boxes_and_circles {</span></span>
+<span id="cb1-8"><a href="comps.html#cb1-8"></a></span>
+<span id="cb1-9"><a href="comps.html#cb1-9"></a><span class="st">  # a &#39;graph&#39; statement</span></span>
+<span id="cb1-10"><a href="comps.html#cb1-10"></a><span class="st">  graph [overlap = true, fontsize = 10]</span></span>
+<span id="cb1-11"><a href="comps.html#cb1-11"></a></span>
+<span id="cb1-12"><a href="comps.html#cb1-12"></a><span class="st">  # several &#39;node&#39; statements</span></span>
+<span id="cb1-13"><a href="comps.html#cb1-13"></a><span class="st">  node [shape = box,</span></span>
+<span id="cb1-14"><a href="comps.html#cb1-14"></a><span class="st">        fontname = Helvetica]</span></span>
+<span id="cb1-15"><a href="comps.html#cb1-15"></a><span class="st">  Q1; Q2; Q3; Q4; Q5; error</span></span>
+<span id="cb1-16"><a href="comps.html#cb1-16"></a></span>
+<span id="cb1-17"><a href="comps.html#cb1-17"></a><span class="st">  node [shape = circle,</span></span>
+<span id="cb1-18"><a href="comps.html#cb1-18"></a><span class="st">        fixedsize = true,</span></span>
+<span id="cb1-19"><a href="comps.html#cb1-19"></a><span class="st">        width = 0.9] // sets as circles</span></span>
+<span id="cb1-20"><a href="comps.html#cb1-20"></a><span class="st">  1; 2; 3; 4; 5; 6; 7; 8</span></span>
+<span id="cb1-21"><a href="comps.html#cb1-21"></a></span>
+<span id="cb1-22"><a href="comps.html#cb1-22"></a><span class="st">  # several &#39;edge&#39; statements</span></span>
+<span id="cb1-23"><a href="comps.html#cb1-23"></a><span class="st">  Q1-&gt;1 Q1-&gt;2 Q1-&gt;3 Q1-&gt;4 </span></span>
+<span id="cb1-24"><a href="comps.html#cb1-24"></a><span class="st">  Q2-&gt;5 Q2-&gt;6 Q2-&gt;7 Q2-&gt;8 Q2-&gt;9 Q2-&gt;10 Q1-&gt;11 Q2-&gt;12 Q2-&gt;13 Q2-&gt;14</span></span>
+<span id="cb1-25"><a href="comps.html#cb1-25"></a><span class="st">  Q3-&gt;15 Q3-&gt;16 Q3-&gt;17</span></span>
+<span id="cb1-26"><a href="comps.html#cb1-26"></a><span class="st">  Q4-&gt;18 Q4-&gt;19</span></span>
+<span id="cb1-27"><a href="comps.html#cb1-27"></a><span class="st">  Q5-&gt;20 Q5-&gt;21 Q5-&gt;22</span></span>
+<span id="cb1-28"><a href="comps.html#cb1-28"></a><span class="st">  1-&gt;general 2-&gt;general 1-&gt;A 2-&gt;D 1-&gt;G 1-&gt;F</span></span>
+<span id="cb1-29"><a href="comps.html#cb1-29"></a><span class="st">  E-&gt;6 4-&gt;V 5-&gt;C 6-&gt;H 3-&gt;M</span></span>
+<span id="cb1-30"><a href="comps.html#cb1-30"></a><span class="st">}</span></span>
+<span id="cb1-31"><a href="comps.html#cb1-31"></a><span class="st">&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-fddc902cad7835d4b6f1" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-fddc902cad7835d4b6f1">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; Q2; Q3; Q4; Q5; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q1->4 \n  Q2->5 Q2->6 Q2->7 Q2->8 Q2->9 Q2->10 Q1->11 Q2->12 Q2->13 Q2->14\n  Q3->15 Q3->16 Q3->17\n  Q4->18 Q4->19\n  Q5->20 Q5->21 Q5->22\n  1->general 2->general 1->A 2->D 1->G 1->F\n  E->6 4->V 5->C 6->H 3->M\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="v4" class="section level3">
+<h3><span class="header-section-number">4.1.3</span> v4</h3>
+<div id="htmlwidget-7e43a985ed4a4f42ff40" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-7e43a985ed4a4f42ff40">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  Q1; Q2; Q3; Q4; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4;\n\n  # several \"edge\" statements\n  Q1->1 Q2->2 Q3->3 Q4->4 \n  1->id 2->general 3->birth 4->location 4->time 4->space E->offspring 4->sex 1->age 2->size 3->status error->E\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
+</div>
+</div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="nzbs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="nzbs.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sppPro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -236,7 +277,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/davan690/processdynamics/docs/edit/master/01-intro.Rmd",
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/03-computers.Rmd",
 "text": "Edit"
 },
 "history": {

@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title> 2 Introduction | Diagrams</title>
+  <title> 3 NZ Beech Forests | Diagrams</title>
   <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content=" 2 Introduction | Diagrams" />
+  <meta property="og:title" content=" 3 NZ Beech Forests | Diagrams" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content=" 2 Introduction | Diagrams" />
+  <meta name="twitter:title" content=" 3 NZ Beech Forests | Diagrams" />
   
   <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="nzbs.html"/>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="comps.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -188,14 +188,12 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number"> 2</span> Introduction</h1>
-<p>For example you might like to think of a simple statistical ANOVA as:</p>
-<p><span class="math display">\[ outcome = \beta_0 + \beta_1(treatment_i) + \beta_2(age_i) + error_i \]</span>
-And if this was to be diagramatically represented it could be describled like so with the following descriptions:</p>
-<p>… [coming] …</p>
-<div id="htmlwidget-e89425a79d1a40d264d8" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-e89425a79d1a40d264d8">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  b0; b1; b2; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  sex; age; \n  \n  # several \"edge\" statements\n  b1->sex; b2->age\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="nzbs" class="section level1">
+<h1><span class="header-section-number"> 3</span> NZ Beech Forests</h1>
+<p>The first beech forest paper assumes and tests the following process:</p>
+<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i \]</span></p>
+<div id="htmlwidget-69ae9697925121ee5881" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-69ae9697925121ee5881">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  b0; b1; b2; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  sex; age; \n  \n  # several \"edge\" statements\n  b1->sex; b2->age\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 </div>
             </section>
@@ -203,8 +201,8 @@ And if this was to be diagramatically represented it could be describled like so
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="nzbs.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="comps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -236,7 +234,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/davan690/processdynamics/docs/edit/master/01-intro.Rmd",
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/02-beechForests.Rmd",
 "text": "Edit"
 },
 "history": {
