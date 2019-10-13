@@ -32,4 +32,3 @@ library(covr)
 # Examples {#exams}
 
 Here are a collection of diagrams that have extended explainations (in time) within the pages.
-

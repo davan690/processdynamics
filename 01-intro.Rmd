@@ -87,7 +87,6 @@ Here is an example of inserting math equations into `diagrammeR` using mathJax??
 source("./R/cos-example.R", echo = TRUE)
 ```
 
-
 ### Kol but not working
 
 ```{r eval=FALSE, include=TRUE}
@@ -116,3 +115,63 @@ create_graph(graph_attrs =
 graph %>% render_graph
 ```
 
+### Mixed models
+
+Mixed models essentially start with sample mean differences between groups and then add additional complexity in favour of poor fitting models.
+
+You can write out models and variable relationships using statistical equations such as:
+
+$$ outcome = \beta_0 + \beta_1(sex_i)$$
+where the variables can be collected either through direct questions or transformed data from the orginal questions. What does it look like in a diagram explaining how the variables are proposed to be similar? Example below:
+
+```{r include = FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Q1; Q2; Q3; Q4; Q5; Q6
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  1; 2; 3; 4; 5; 6; 7; 8
+
+  # several 'edge' statements
+  Q1->1 Q1->2 Q1->3 Q2->4 Q3->A
+  Q3->D Q5->A Q2->4 Q2->5 Q6->F
+  E->6 4->6 5->7 6->7 3->8
+}
+")
+```
+
+For example you might think that generally individuals that ...
+
+$$ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i $$
+
+```{r include=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  b0; b1; b2; error
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  sex; age; 
+  
+  # several 'edge' statements
+  b1->sex; b2->age
+}
+")
+```
