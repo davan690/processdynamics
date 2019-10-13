@@ -1,5 +1,23 @@
+#this yml file is a record of how to compile the following reports and outputs
+
+#this is the name of the ???
 book_filename: "All sorts of flow diagrams"
+#for personal site
+#book_filename: "2019-09-11-post-rmd-test"
 language:
   ui:
     chapter_name: " "
+    
+#output directory options
 output_dir: "docs"
+#saving for review 
+#doesnt work...
+#output_dir: "C://Code/mpd-publication-wrangling"
+#saving blog post
+#output_dir: "C://Code/davan690.github.io/_posts"
+#document structure
+#for SSN report
+rmd_files: ["index.Rmd", "01-intro.Rmd", "06-likert_scales.Rmd"]
+
+# for simple overview
+#rmd_files: ["01-intro.Rmd"]

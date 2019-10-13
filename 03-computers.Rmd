@@ -1,11 +1,264 @@
 # Software and Hardware {#comps}
 
-## Computer processes {.tabset}
+This is a great question I have been playing around with to help learn how to use the `diagrammeR` package. The question is:
+<br>
+**What is the difference between software and hardware?**
+<br>
+```{r}
+library(tidyverse)
+library(kableExtra)
+```
 
-### Statistical programming v1
+I thought that is was an obvious difference. Hardware is the stuff that makes the software work. 
+
+For example, `RAM` is hardware, `word` is software?
+
+```{r echo = FALSE, warnings = FALSE, messages=FALSE}
+Hardware <- c("RAM", "CPU", "Processors")
+Software <- c("R", "word", "excel")
+comp.dat <- cbind(Software,Hardware)
+comp.dat1 <- as.data.frame(comp.dat)
+kable(comp.dat1, format = "markdown")
+```
+
+## Software {.tabset}
+
+But the problem is when somebody knows the interface (software that uses many types of software). Examples of this are programs like `RStudio`, `vs-code` and other such programs. This is because they are a single piece of software that uses "heaps" of other software.
+
+```{r echo = FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  Scrap
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  revtools; rmarkdown; report
+  
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  data
+
+  # several 'edge' statements
+  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www
+}
+")
+```
+
+But then each bit of software such as `GIT` and `R` can be accessed by many different types of software...so is `R` not just hardware then?
 
 ```{r}
+grViz("
+digraph boxes_and_circles {
 
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  RStudio; 'vs-code'
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  R; GIT; Python
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  www
+
+  # several 'edge' statements
+  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www
+  'vs-code'->GIT 'vs-code'->R 'vs-code'->Python
+}
+")
+```
+
+And now the question becomes about the definition of what software and hardware are...
+
+```{r}
+Hardware <- c("RAM", "CPU", "Processors")
+Software <- c("R", "word", "excel")
+comp.dat <- cbind(Software,Hardware)
+comp.dat1 <- as.data.frame(comp.dat)
+kable(comp.dat1, format = "markdown")
+```
+
+### RStudio
+
+But the problem is when somebody knows the interface (software that uses many types of software). Examples of this are programs like `RStudio`, `vs-code` and other such programs. This is because they are a single piece of software that uses "heaps" of other software.
+
+```{r echo = FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  RStudio
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  R; GIT; Python
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  www
+
+  # several 'edge' statements
+  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www
+}
+")
+```
+
+### 'vs-code'
+
+But then each bit of software such as `GIT` and `R` can be accessed by many different types of software...so is `R` not just hardware then?
+
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  'vs-code'
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  R; GIT; Python; Ruby
+  
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  www
+
+  # several 'edge' statements
+  'vs-code'->GIT 'vs-code'->R 'vs-code'->Python 'ruby'->www 'vs-code'->Ruby
+}
+")
+```
+
+### R
+
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  'R'
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  R; tidyverse; Python
+  
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  dplyr; ggplot2; others
+
+  # several 'edge' statements
+  R->dplyr R->ggplot2 R->others
+  tidyverse->ggplot2 tidyverse->dplyr
+  R->Python
+}
+")
+```
+
+## Computer processes {.tabset}
+
+### RStudio
+
+This is an example of a piece of software. It needs your computer (hardware) to run so therefore it is software. Just the same as `R`....but not really.
+
+#### A simple `Rscript`
+
+```{r}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  RStudio
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  word; html; pdf; R
+  
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  www
+
+  # several 'edge' statements
+  RStudio->R R->word R->html R->pdf html->www
+}
+")
+```
+
+But this is not really what is happening. For example this is the `RMarkdown` figure for this process:
+
+```{r}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  RMD; MD
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  word; html; pdf
+  
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  www
+
+  # several 'edge' statements
+  RMD->MD MD->word MD->html MD->pdf html->www 
+}
+")
 ```
 
 ### v3
@@ -58,16 +311,19 @@ digraph boxes_and_circles {
   node [shape = box,
         fontname = Helvetica,
         fill = grey50]
-  Q1; Q2; Q3; Q4; error
+  RStudio
 
   node [shape = circle,
         fixedsize = true,
         width = 0.9] // sets as circles
-  1; 2; 3; 4;
+  R; GIT; Python
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  www
 
   # several 'edge' statements
-  Q1->1 Q2->2 Q3->3 Q4->4 
-  1->id 2->general 3->birth 4->location 4->time 4->space E->offspring 4->sex 1->age 2->size 3->status error->E
+  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www
 }
 ")
 ```

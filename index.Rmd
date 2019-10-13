@@ -18,7 +18,7 @@ knitr::write_bib(c(
 ```
 
 ```{r setupsdv, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
 
 ```{r librariefbs, message=FALSE, warning=FALSE, include=FALSE}

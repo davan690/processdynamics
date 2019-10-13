@@ -1,11 +1,56 @@
 # Introduction {#intro}
 
-For example you might like to think of a simple statistical ANOVA as:
+Conceptial diagrams are vital for understanding processes and developing incremetal science, however, there seems to be very few packages or other software that aligns with the literature in how and when these diagrams should be developed.
 
-$$ outcome = \beta_0 + \beta_1(treatment_i) + \beta_2(age_i) + error_i $$
+This book uses `R` and the core packages [`diagrammeR`](https://cran.r-project.org/web/packages/DiagrammeR/index.html).
+
+```{r message=FALSE, warning=FALSE, include=FALSE}
+library(DiagrammeR)
+```
+
+There is a great resource written by the author [here](https://rich-iannone.github.io/DiagrammeR/index.html) but I am still working out overall how the package in R works.
+- A good explaination of the features [here](https://rich-iannone.github.io/DiagrammeR/index.html#features)
+
+## Resources
+
+The general concept of the package I am using is very simple but the code looks intemidating:
+
+```{r echo=TRUE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  'box'; 'shape'
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  'shape2'; 'circles'
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  'join'; 'arrow'
+  
+  # several 'edge' statements
+  join->arrow
+}
+")
+```
+
+## My notes
+
+For example, you might like to think of a simple statistical regression with a single `y` and `x`as:
+
+$$ y_i = \beta_0 + \beta_1(x_i) + error_i $$
 And if this was to be diagramatically represented it could be describled like so with the following descriptions:
 
-... [coming] ...
+*1:* We are proposing that $y_i$ is directly effected by $x_i$.
 
 ```{r echo=FALSE}
 grViz("
@@ -17,16 +62,57 @@ digraph boxes_and_circles {
   # several 'node' statements
   node [shape = box,
         fontname = Helvetica]
-  b0; b1; b2; error
+  y; x
 
   node [shape = circle,
         fixedsize = true,
         width = 0.9] // sets as circles
-  sex; age; 
+  error; 'b0' 
   
   # several 'edge' statements
-  b1->sex; b2->age
+  y->x; y->'b0'
 }
 ")
+```
+
+### Examples
+
+This info I think is interesting but haven't investigated it much yet.
+
+### Math insert
+
+Here is an example of inserting math equations into `diagrammeR` using mathJax??
+
+```{r}
+source("./R/cos-example.R", echo = TRUE)
+```
+
+
+### Kol but not working
+
+```{r eval=FALSE, include=TRUE}
+###
+# Delete specific nodes
+# from the graph using
+# `delete_node()`
+###
+
+library(DiagrammeR)
+library(magrittr)
+
+# Create a graph with a central
+# node and multiples of children nodes
+graph <-
+create_graph(graph_attrs =
+               "output = visNetwork") %>%
+  add_n_nodes(1, "A") %>%
+  select_nodes %>%
+  add_n_nodes_ws(3, "B") %>%
+  clear_selection %>%
+  select_nodes("type", "B") %>%
+  add_n_nodes_ws(3, "C")
+
+# View the graph
+graph %>% render_graph
 ```
 

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 3 Node and Edge Data Frames | A Minimal Book Example</title>
+  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 3 Node and Edge Data Frames | A Minimal Book Example" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 3 Node and Edge Data Frames | A Minimal Book Example" />
+  
+  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  
+
+<meta name="author" content="Yihui Xie" />
+
+
+<meta name="date" content="2019-10-10" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="likscale.html"/>
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5/htmlwidgets.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.1/grViz.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">A Minimal Book Example</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Examples</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.0.1" data-path="intro.html"><a href="intro.html#email-replies-in-more-detail"><i class="fa fa-check"></i><b>2.0.1</b> Email replies in more detail</a></li>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#overall"><i class="fa fa-check"></i><b>2.1</b> Overall</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#principal-component-analysis"><i class="fa fa-check"></i><b>2.1.1</b> Principal component analysis</a></li>
+<li class="chapter" data-level="2.1.2" data-path="intro.html"><a href="intro.html#normalization"><i class="fa fa-check"></i><b>2.1.2</b> Normalization</a></li>
+<li class="chapter" data-level="2.1.3" data-path="intro.html"><a href="intro.html#mixed-models"><i class="fa fa-check"></i><b>2.1.3</b> Mixed models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Node and Edge Data Frames</a><ul>
+<li class="chapter" data-level="3.0.1" data-path="data.html"><a href="data.html#node-and-edge-data-frames"><i class="fa fa-check"></i><b>3.0.1</b> Node and Edge Data Frames</a></li>
+<li class="chapter" data-level="3.0.2" data-path="data.html"><a href="data.html#creating-an-ndf"><i class="fa fa-check"></i><b>3.0.2</b> Creating an NDF</a></li>
+<li class="chapter" data-level="3.0.3" data-path="data.html"><a href="data.html#creating-an-edf"><i class="fa fa-check"></i><b>3.0.3</b> Creating an EDF</a></li>
+<li class="chapter" data-level="3.0.4" data-path="data.html"><a href="data.html#combining-ndfs"><i class="fa fa-check"></i><b>3.0.4</b> Combining NDFs</a></li>
+<li class="chapter" data-level="3.0.5" data-path="data.html"><a href="data.html#combining-edfs"><i class="fa fa-check"></i><b>3.0.5</b> Combining EDFs</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="likscale.html"><a href="likscale.html"><i class="fa fa-check"></i><b>4</b> Likert Scales</a><ul>
+<li class="chapter" data-level="4.1" data-path="likscale.html"><a href="likscale.html#the-problem"><i class="fa fa-check"></i><b>4.1</b> The problem</a></li>
+<li class="chapter" data-level="4.2" data-path="likscale.html"><a href="likscale.html#method"><i class="fa fa-check"></i><b>4.2</b> Method</a></li>
+<li class="chapter" data-level="4.3" data-path="likscale.html"><a href="likscale.html#flow-diagram"><i class="fa fa-check"></i><b>4.3</b> Flow diagram</a></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="data" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Node and Edge Data Frames</h1>
+<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">2</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
+<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb4-1"><a href="data.html#cb4-1"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))</span>
+<span id="cb4-2"><a href="data.html#cb4-2"></a><span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
+<div class="figure" style="text-align: center"><span id="fig:nice-fig"></span>
+<img src="template-build_files/figure-html/nice-fig-1.png" alt="Here is a nice figure!" width="80%" />
+<p class="caption">
+Figure 3.1: Here is a nice figure!
+</p>
+</div>
+<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="data.html#fig:nice-fig">3.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="data.html#tab:nice-tab">3.1</a>.</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb5-1"><a href="data.html#cb5-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
+<span id="cb5-2"><a href="data.html#cb5-2"></a>  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
+<span id="cb5-3"><a href="data.html#cb5-3"></a>  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></span>
+<span id="cb5-4"><a href="data.html#cb5-4"></a>)</span></code></pre></div>
+<table>
+<caption><span id="tab:nice-tab">Table 3.1: </span>Here is a nice table!</caption>
+<thead>
+<tr class="header">
+<th align="right">Sepal.Length</th>
+<th align="right">Sepal.Width</th>
+<th align="right">Petal.Length</th>
+<th align="right">Petal.Width</th>
+<th align="left">Species</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.7</td>
+<td align="right">3.2</td>
+<td align="right">1.3</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.6</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.0</td>
+<td align="right">3.6</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.7</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.6</td>
+<td align="right">3.4</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.0</td>
+<td align="right">3.4</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.4</td>
+<td align="right">2.9</td>
+<td align="right">1.4</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.9</td>
+<td align="right">3.1</td>
+<td align="right">1.5</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.7</td>
+<td align="right">1.5</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.8</td>
+<td align="right">3.4</td>
+<td align="right">1.6</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">4.8</td>
+<td align="right">3.0</td>
+<td align="right">1.4</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">4.3</td>
+<td align="right">3.0</td>
+<td align="right">1.1</td>
+<td align="right">0.1</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.8</td>
+<td align="right">4.0</td>
+<td align="right">1.2</td>
+<td align="right">0.2</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.7</td>
+<td align="right">4.4</td>
+<td align="right">1.5</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.4</td>
+<td align="right">3.9</td>
+<td align="right">1.3</td>
+<td align="right">0.4</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.5</td>
+<td align="right">1.4</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="odd">
+<td align="right">5.7</td>
+<td align="right">3.8</td>
+<td align="right">1.7</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+<tr class="even">
+<td align="right">5.1</td>
+<td align="right">3.8</td>
+<td align="right">1.5</td>
+<td align="right">0.3</td>
+<td align="left">setosa</td>
+</tr>
+</tbody>
+</table>
+<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown" role="doc-biblioref">2019</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015" role="doc-biblioref">2015</a>)</span>.</p>
+<div id="node-and-edge-data-frames" class="section level3">
+<h3><span class="header-section-number">3.0.1</span> Node and Edge Data Frames</h3>
+<p>These functions are used to create and manipulate specialized data frames: node data frames (NDFs) and edge data frames (EDFs). The functions are useful because one can selectively add field data to these data frames and combine them as necessary before addition to a graph object.</p>
+</div>
+<div id="creating-an-ndf" class="section level3">
+<h3><span class="header-section-number">3.0.2</span> Creating an NDF</h3>
+<p>With the <code>create_node_df()</code> function, one can create a node data frame (NDF) with nodes and their attributes. This object is really just an R data.frame object. In most cases, it’s recommended to use <code>create_node_df()</code> instead of <code>data.frame()</code> (or, <code>as.data.frame()</code>) to create an NDF. Using <code>create_node_df()</code> allows for validation of the input data (so that the integrity of the graph is not compromised) and the function provides some additional functionality that the base R functions for data frame creation do not have:</p>
+<ul>
+<li>single values are repeated for n number of nodes supplied</li>
+<li>selective setting of attributes (e.g., giving attr values for 3 of 10 nodes, allowing non-set nodes to use defaults or globally set attr values)</li>
+<li>supplying overlong vectors for attributes will result in trimming down to the number of nodes</li>
+<li>setting <code>label = FALSE</code> will conveniently result in a non-labeled node</li>
+</ul>
+<p>The function only has one argument that requires values to be supplied: the nodes argument. Just supplying a set of unique ID values for nodes will create an NDF with nodes that have no additional attributes.</p>
+<p>When incorporated into a graph, an NDF is parsed and column names that match keywords for node attributes indicate to <strong>DiagrammeR</strong> that the values in such columns should provide attribute values on a per-node basis. Columns with names that don’t match reserved attribute names are disregarded and, because of this, you can include columns with useful data for analysis. When creating a node data frame, one column named <code>nodes</code> will be created (and it will be the first column in the NDF). That’s where unique values for the node ID should reside. As for other attribute columns, the <code>type</code> and <code>label</code> columns will also be created. However, these do not necessarily need to be populated with values and thus they can be left blank, if desired. Other attributes are voluntarily added as named vectors for the R triple-dot (<code>...</code>) argument. Here are all of the node attribute names and the types of values to supply:</p>
+<ul>
+<li><code>color</code> — provide an X11 or hexadecimal color (append 2 digits to hex for alpha)</li>
+<li><code>distortion</code> — the node distortion for any <code>shape = polygon</code></li>
+<li><code>fillcolor</code> — provide an X11 or hexadecimal color (append 2 digits to hex for alpha)</li>
+<li><code>fixedsize</code> — <code>true</code> or <code>false</code></li>
+<li><code>fontcolor</code> — provide an X11 or hexadecimal color (append 2 digits to hex for alpha)</li>
+<li><code>fontname</code> — the name of the font</li>
+<li><code>fontsize</code> — the size of the font for the node label</li>
+<li><code>height</code> — the height of the node</li>
+<li><code>penwidth</code> — the thickness of the stroke for the shape</li>
+<li><code>peripheries</code> — the number of peripheries (essentially, additional shape outlines)</li>
+<li><code>shape</code> — the node shape (e.g., <code>ellipse</code>, <code>polygon</code>, <code>circle</code>, etc.)</li>
+<li><code>sides</code> — if <code>shape = polygon</code>, the number of sides can be provided here</li>
+<li><code>style</code> — usually given the value filled if you’d like to fill a node with a color</li>
+<li><code>tooltip</code> — provide text here for an unstyled browser tooltip</li>
+<li><code>width</code> — the width of the node</li>
+<li><code>x</code> — the x position of the node (requires graph attr <code>layout = neato</code> to use)</li>
+<li><code>y</code> — the y position of the node (requires graph attr <code>layout = neato</code> to use)</li>
+</ul>
+<p>In the following examples, node data frames are created. There are a few worthwhile things to notice here. The nodes can be supplied as a character vector (as in <code>c("a", "b", "c", "d")</code>), or, as a range of integers (<code>1:4</code>). It may be a matter of preference, but the numbering system seems to be the better choice (and other functions available in the package will take advantage of a graph with ID values that are available as monotonically increasing integer values). Secondly, a single logical value can be supplied to the <code>label</code> argument, where <code>TRUE</code> copies the node ID to the label attribute, and <code>FALSE</code> yields a blank, unset value for all nodes in the NDF. Finally, the provision of single values in a call that creates more than a single node will result in all nodes having that attribute (e.g., <code>color = "aqua"</code> sets all nodes in the NDF with the ‘aqua’ color).</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb6-1"><a href="data.html#cb6-1"></a><span class="co"># Create a node data frame</span></span>
+<span id="cb6-2"><a href="data.html#cb6-2"></a>nodes_<span class="dv">1</span> &lt;-</span>
+<span id="cb6-3"><a href="data.html#cb6-3"></a><span class="st">  </span><span class="kw">create_node_df</span>(</span>
+<span id="cb6-4"><a href="data.html#cb6-4"></a>    <span class="dt">n =</span> <span class="dv">4</span>, </span>
+<span id="cb6-5"><a href="data.html#cb6-5"></a>    <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>,</span>
+<span id="cb6-6"><a href="data.html#cb6-6"></a>    <span class="dt">label =</span> <span class="kw">c</span>(<span class="st">&quot;a&quot;</span>, <span class="st">&quot;b&quot;</span>, <span class="st">&quot;c&quot;</span>, <span class="st">&quot;d&quot;</span>),</span>
+<span id="cb6-7"><a href="data.html#cb6-7"></a>    <span class="dt">style =</span> <span class="st">&quot;filled&quot;</span>,</span>
+<span id="cb6-8"><a href="data.html#cb6-8"></a>    <span class="dt">color =</span> <span class="st">&quot;aqua&quot;</span>,</span>
+<span id="cb6-9"><a href="data.html#cb6-9"></a>    <span class="dt">shape =</span> <span class="kw">c</span>(<span class="st">&quot;circle&quot;</span>, <span class="st">&quot;circle&quot;</span>,</span>
+<span id="cb6-10"><a href="data.html#cb6-10"></a>              <span class="st">&quot;rectangle&quot;</span>, <span class="st">&quot;rectangle&quot;</span>),</span>
+<span id="cb6-11"><a href="data.html#cb6-11"></a>    <span class="dt">data =</span> <span class="kw">c</span>(<span class="fl">3.5</span>, <span class="fl">2.6</span>, <span class="fl">9.4</span>, <span class="fl">2.7</span>))</span>
+<span id="cb6-12"><a href="data.html#cb6-12"></a></span>
+<span id="cb6-13"><a href="data.html#cb6-13"></a><span class="co"># Inspect the `nodes_1` NDF</span></span>
+<span id="cb6-14"><a href="data.html#cb6-14"></a>nodes_<span class="dv">1</span></span>
+<span id="cb6-15"><a href="data.html#cb6-15"></a><span class="co">#&gt;   id  type label  style color     shape data</span></span>
+<span id="cb6-16"><a href="data.html#cb6-16"></a><span class="co">#&gt; 1  1 lower     a filled  aqua    circle  3.5</span></span>
+<span id="cb6-17"><a href="data.html#cb6-17"></a><span class="co">#&gt; 2  2 lower     b filled  aqua    circle  2.6</span></span>
+<span id="cb6-18"><a href="data.html#cb6-18"></a><span class="co">#&gt; 3  3 lower     c filled  aqua rectangle  9.4</span></span>
+<span id="cb6-19"><a href="data.html#cb6-19"></a><span class="co">#&gt; 4  4 lower     d filled  aqua rectangle  2.7</span></span></code></pre></div>
+<div class="sourceCode" id="cb7"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb7-1"><a href="data.html#cb7-1"></a><span class="co"># Create another node data frame</span></span>
+<span id="cb7-2"><a href="data.html#cb7-2"></a>nodes_<span class="dv">2</span> &lt;-</span>
+<span id="cb7-3"><a href="data.html#cb7-3"></a><span class="st">  </span><span class="kw">create_node_df</span>(</span>
+<span id="cb7-4"><a href="data.html#cb7-4"></a>    <span class="dt">n =</span> <span class="dv">4</span>,</span>
+<span id="cb7-5"><a href="data.html#cb7-5"></a>    <span class="dt">type =</span> <span class="st">&quot;upper&quot;</span>,</span>
+<span id="cb7-6"><a href="data.html#cb7-6"></a>    <span class="dt">label =</span> <span class="ot">TRUE</span>,</span>
+<span id="cb7-7"><a href="data.html#cb7-7"></a>    <span class="dt">style =</span> <span class="st">&quot;filled&quot;</span>,</span>
+<span id="cb7-8"><a href="data.html#cb7-8"></a>    <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>,</span>
+<span id="cb7-9"><a href="data.html#cb7-9"></a>    <span class="dt">shape =</span> <span class="st">&quot;triangle&quot;</span>,</span>
+<span id="cb7-10"><a href="data.html#cb7-10"></a>    <span class="dt">data =</span> <span class="kw">c</span>(<span class="fl">0.5</span>, <span class="fl">3.9</span>, <span class="fl">3.7</span>, <span class="fl">8.2</span>))</span>
+<span id="cb7-11"><a href="data.html#cb7-11"></a></span>
+<span id="cb7-12"><a href="data.html#cb7-12"></a><span class="co"># Inspect the `nodes_2` NDF</span></span>
+<span id="cb7-13"><a href="data.html#cb7-13"></a>nodes_<span class="dv">2</span></span>
+<span id="cb7-14"><a href="data.html#cb7-14"></a><span class="co">#&gt;   id  type label  style color    shape data</span></span>
+<span id="cb7-15"><a href="data.html#cb7-15"></a><span class="co">#&gt; 1  1 upper     1 filled   red triangle  0.5</span></span>
+<span id="cb7-16"><a href="data.html#cb7-16"></a><span class="co">#&gt; 2  2 upper     2 filled   red triangle  3.9</span></span>
+<span id="cb7-17"><a href="data.html#cb7-17"></a><span class="co">#&gt; 3  3 upper     3 filled   red triangle  3.7</span></span>
+<span id="cb7-18"><a href="data.html#cb7-18"></a><span class="co">#&gt; 4  4 upper     4 filled   red triangle  8.2</span></span></code></pre></div>
+</div>
+<div id="creating-an-edf" class="section level3">
+<h3><span class="header-section-number">3.0.3</span> Creating an EDF</h3>
+<p>Using the <code>create_edge_df()</code> function, an edge data frame (EDF) (comprising edges and their attributes) is created. As with the <code>create_node_df()</code> function, the resulting object is an R <code>data.frame</code> object. While the usual means for creating data frames could be used to create an EDF, the <code>create_edge_df()</code> function provides some conveniences and validation of the final object (e.g., checking for uniqueness of the supplied node ID values). Also, there is a special attribute for a edge called a <code>rel</code>, which is short for relationship. This is an optional attribute, so, it can be left blank. However, it’s advantageous to have these types of group labels set for all edges, especially if the resulting graph is to be fashioned as a property graph. (The node <code>type</code> values must also be set for each node to model your graph as a property graph.)</p>
+<p>Edges define the connections between nodes in a graph. So, in a sense, an edge data frame is a complementary component to the node data frame within a graph. Therefore, the EDF contains node ID information in two columns named <code>from</code> and <code>to</code>. So, when making an edge data frame, there are two equal-length vectors that need to be supplied to the <code>create_edge_df()</code> function: one for the outgoing node edge (<code>from</code>), and, another for the incoming node edge (<code>to</code>). Each of the two columns will contain node ID values. As for the node data frame, attributes can be provided for each of the edges. The following edge attributes can be used:</p>
+<ul>
+<li><code>arrowhead</code> — the arrow style at the head end (e.g, normal, dot)</li>
+<li><code>arrowsize</code> — the scaling factor for the arrowhead and arrowtail</li>
+<li><code>arrowtail</code> — the arrow style at the tail end (e.g, normal, dot)</li>
+<li><code>color</code> — the stroke color; an X11 color or a hex code (add 2 digits for alpha)</li>
+<li><code>dir</code> — the direction; either forward, back, both, or none</li>
+<li><code>fontcolor</code> — choose an X11 color or provide a hex code (append 2 digits for alpha)</li>
+<li><code>fontname</code> — the name of the font</li>
+<li><code>fontsize</code> — the size of the font for the node label</li>
+<li><code>headport</code> — a cardinal direction for where the arrowhead meets the node</li>
+<li><code>label</code> — label text for the line between nodes</li>
+<li><code>minlen</code> — minimum rank distance between head and tail</li>
+<li><code>penwidth</code> — the thickness of the stroke for the arrow</li>
+<li><code>tailport</code> — a cardinal direction for where the tail is emitted from the node</li>
+<li><code>tooltip</code> — provide text here for an edge tooltip</li>
+</ul>
+<p>Here are a few examples of how edge data frames can be created:</p>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="data.html#cb8-1"></a><span class="co"># Create an edge data frame</span></span>
+<span id="cb8-2"><a href="data.html#cb8-2"></a>edges_<span class="dv">1</span> &lt;-</span>
+<span id="cb8-3"><a href="data.html#cb8-3"></a><span class="st">  </span><span class="kw">create_edge_df</span>(</span>
+<span id="cb8-4"><a href="data.html#cb8-4"></a>    <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb8-5"><a href="data.html#cb8-5"></a>      <span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>),</span>
+<span id="cb8-6"><a href="data.html#cb8-6"></a>    <span class="dt">rel =</span> <span class="st">&quot;requires&quot;</span>,</span>
+<span id="cb8-7"><a href="data.html#cb8-7"></a>    <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>,</span>
+<span id="cb8-8"><a href="data.html#cb8-8"></a>    <span class="dt">data =</span> <span class="kw">c</span>(<span class="fl">2.7</span>, <span class="fl">8.9</span>, <span class="fl">2.6</span>, <span class="fl">0.6</span>))</span>
+<span id="cb8-9"><a href="data.html#cb8-9"></a></span>
+<span id="cb8-10"><a href="data.html#cb8-10"></a>edges_<span class="dv">1</span></span>
+<span id="cb8-11"><a href="data.html#cb8-11"></a><span class="co">#&gt;   id from to      rel color data</span></span>
+<span id="cb8-12"><a href="data.html#cb8-12"></a><span class="co">#&gt; 1  1    1  2 requires green  2.7</span></span>
+<span id="cb8-13"><a href="data.html#cb8-13"></a><span class="co">#&gt; 2  2    1  4 requires green  8.9</span></span>
+<span id="cb8-14"><a href="data.html#cb8-14"></a><span class="co">#&gt; 3  3    2  4 requires green  2.6</span></span>
+<span id="cb8-15"><a href="data.html#cb8-15"></a><span class="co">#&gt; 4  4    3  1 requires green  0.6</span></span></code></pre></div>
+<div class="sourceCode" id="cb9"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb9-1"><a href="data.html#cb9-1"></a><span class="co"># Create another edge data frame</span></span>
+<span id="cb9-2"><a href="data.html#cb9-2"></a>edges_<span class="dv">2</span> &lt;-</span>
+<span id="cb9-3"><a href="data.html#cb9-3"></a><span class="st">  </span><span class="kw">create_edge_df</span>(</span>
+<span id="cb9-4"><a href="data.html#cb9-4"></a>    <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>),</span>
+<span id="cb9-5"><a href="data.html#cb9-5"></a>    <span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">5</span>),</span>
+<span id="cb9-6"><a href="data.html#cb9-6"></a>    <span class="dt">rel =</span> <span class="st">&quot;receives&quot;</span>,</span>
+<span id="cb9-7"><a href="data.html#cb9-7"></a>    <span class="dt">arrowhead =</span> <span class="st">&quot;dot&quot;</span>,</span>
+<span id="cb9-8"><a href="data.html#cb9-8"></a>    <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb9-9"><a href="data.html#cb9-9"></a></span>
+<span id="cb9-10"><a href="data.html#cb9-10"></a>edges_<span class="dv">2</span></span>
+<span id="cb9-11"><a href="data.html#cb9-11"></a><span class="co">#&gt;   id from to      rel arrowhead color</span></span>
+<span id="cb9-12"><a href="data.html#cb9-12"></a><span class="co">#&gt; 1  1    5  8 receives       dot   red</span></span>
+<span id="cb9-13"><a href="data.html#cb9-13"></a><span class="co">#&gt; 2  2    7  8 receives       dot   red</span></span>
+<span id="cb9-14"><a href="data.html#cb9-14"></a><span class="co">#&gt; 3  3    8  6 receives       dot   red</span></span>
+<span id="cb9-15"><a href="data.html#cb9-15"></a><span class="co">#&gt; 4  4    8  5 receives       dot   red</span></span></code></pre></div>
+</div>
+<div id="combining-ndfs" class="section level3">
+<h3><span class="header-section-number">3.0.4</span> Combining NDFs</h3>
+<p>Several node data frames (NDFs) can be combined into one using the <code>combine_ndfs()</code> function. You can combine two NDFs in a single call of <code>combine_ndfs()</code>, or, combine even more in a single pass.</p>
+<p>There may be occasion to combine several NDFs into a single node data frame. The <code>combine_ndfs()</code> function works much like the base R <code>rbind()</code> function except that it accepts NDFs with columns differing in number, names, and ordering. Obtaining several node data frames may result from collecting data from various sources, at different times (where the collected data is different), or, simply from multiple calls of <code>create_node_df()</code> for practical or readability purposes, to name a few examples. Speaking of examples:</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="data.html#cb10-1"></a><span class="co"># Create an NDF</span></span>
+<span id="cb10-2"><a href="data.html#cb10-2"></a>nodes_<span class="dv">1</span> &lt;-</span>
+<span id="cb10-3"><a href="data.html#cb10-3"></a><span class="st">  </span><span class="kw">create_node_df</span>(</span>
+<span id="cb10-4"><a href="data.html#cb10-4"></a>    <span class="dt">n =</span> <span class="dv">4</span>,</span>
+<span id="cb10-5"><a href="data.html#cb10-5"></a>    <span class="dt">label =</span> <span class="dv">1</span><span class="op">:</span><span class="dv">4</span>,</span>
+<span id="cb10-6"><a href="data.html#cb10-6"></a>    <span class="dt">type =</span> <span class="st">&quot;lower&quot;</span>,</span>
+<span id="cb10-7"><a href="data.html#cb10-7"></a>    <span class="dt">data =</span> <span class="kw">c</span>(<span class="fl">8.2</span>, <span class="fl">5.2</span>, <span class="fl">1.2</span>, <span class="fl">14.9</span>))</span>
+<span id="cb10-8"><a href="data.html#cb10-8"></a></span>
+<span id="cb10-9"><a href="data.html#cb10-9"></a><span class="co"># Create another NDF</span></span>
+<span id="cb10-10"><a href="data.html#cb10-10"></a>nodes_<span class="dv">2</span> &lt;-</span>
+<span id="cb10-11"><a href="data.html#cb10-11"></a><span class="st">  </span><span class="kw">create_node_df</span>(</span>
+<span id="cb10-12"><a href="data.html#cb10-12"></a>    <span class="dt">n =</span> <span class="dv">4</span>,</span>
+<span id="cb10-13"><a href="data.html#cb10-13"></a>    <span class="dt">label =</span> <span class="dv">5</span><span class="op">:</span><span class="dv">8</span>,</span>
+<span id="cb10-14"><a href="data.html#cb10-14"></a>    <span class="dt">type =</span> <span class="st">&quot;upper&quot;</span>,</span>
+<span id="cb10-15"><a href="data.html#cb10-15"></a>    <span class="dt">data =</span> <span class="kw">c</span>(<span class="fl">0.3</span>, <span class="fl">6.3</span>, <span class="fl">10.7</span>, <span class="fl">1.2</span>))</span>
+<span id="cb10-16"><a href="data.html#cb10-16"></a></span>
+<span id="cb10-17"><a href="data.html#cb10-17"></a><span class="co"># Combine the NDFs</span></span>
+<span id="cb10-18"><a href="data.html#cb10-18"></a>all_nodes &lt;-<span class="st"> </span><span class="kw">combine_ndfs</span>(nodes_<span class="dv">1</span>, nodes_<span class="dv">2</span>)</span>
+<span id="cb10-19"><a href="data.html#cb10-19"></a></span>
+<span id="cb10-20"><a href="data.html#cb10-20"></a>all_nodes</span>
+<span id="cb10-21"><a href="data.html#cb10-21"></a><span class="co">#&gt;   id  type label data</span></span>
+<span id="cb10-22"><a href="data.html#cb10-22"></a><span class="co">#&gt; 1  1 lower     1  8.2</span></span>
+<span id="cb10-23"><a href="data.html#cb10-23"></a><span class="co">#&gt; 2  2 lower     2  5.2</span></span>
+<span id="cb10-24"><a href="data.html#cb10-24"></a><span class="co">#&gt; 3  3 lower     3  1.2</span></span>
+<span id="cb10-25"><a href="data.html#cb10-25"></a><span class="co">#&gt; 4  4 lower     4 14.9</span></span>
+<span id="cb10-26"><a href="data.html#cb10-26"></a><span class="co">#&gt; 5  5 upper     5  0.3</span></span>
+<span id="cb10-27"><a href="data.html#cb10-27"></a><span class="co">#&gt; 6  6 upper     6  6.3</span></span>
+<span id="cb10-28"><a href="data.html#cb10-28"></a><span class="co">#&gt; 7  7 upper     7 10.7</span></span>
+<span id="cb10-29"><a href="data.html#cb10-29"></a><span class="co">#&gt; 8  8 upper     8  1.2</span></span></code></pre></div>
+</div>
+<div id="combining-edfs" class="section level3">
+<h3><span class="header-section-number">3.0.5</span> Combining EDFs</h3>
+<p>There may be cases where one might take data from one or more data frames and create multiple edge data frames. One can combine multiple edge data frames (EDFs) with the <code>combine_edfs()</code> function. Any number of EDFs can be safely combined with one call of this function.</p>
+<p>Again, it is advantageous to use this combining function for the purpose of coalescing EDFs. Once a single, combined EDF is generated, it is much easier to incorporate that data into a <strong>DiagrammeR</strong> graph object.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="data.html#cb11-1"></a><span class="co"># Create an edge data frame</span></span>
+<span id="cb11-2"><a href="data.html#cb11-2"></a>edges_<span class="dv">1</span> &lt;-</span>
+<span id="cb11-3"><a href="data.html#cb11-3"></a><span class="st">  </span><span class="kw">create_edge_df</span>(</span>
+<span id="cb11-4"><a href="data.html#cb11-4"></a>    <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>),</span>
+<span id="cb11-5"><a href="data.html#cb11-5"></a>      <span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">4</span>, <span class="dv">1</span>),</span>
+<span id="cb11-6"><a href="data.html#cb11-6"></a>    <span class="dt">rel =</span> <span class="st">&quot;requires&quot;</span>,</span>
+<span id="cb11-7"><a href="data.html#cb11-7"></a>    <span class="dt">color =</span> <span class="st">&quot;green&quot;</span>,</span>
+<span id="cb11-8"><a href="data.html#cb11-8"></a>    <span class="dt">data =</span> <span class="kw">c</span>(<span class="fl">2.7</span>, <span class="fl">8.9</span>, <span class="fl">2.6</span>, <span class="fl">0.6</span>))</span>
+<span id="cb11-9"><a href="data.html#cb11-9"></a></span>
+<span id="cb11-10"><a href="data.html#cb11-10"></a><span class="co"># Create another edge data frame</span></span>
+<span id="cb11-11"><a href="data.html#cb11-11"></a>edges_<span class="dv">2</span> &lt;-</span>
+<span id="cb11-12"><a href="data.html#cb11-12"></a><span class="st">  </span><span class="kw">create_edge_df</span>(</span>
+<span id="cb11-13"><a href="data.html#cb11-13"></a>    <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">5</span>, <span class="dv">7</span>, <span class="dv">8</span>, <span class="dv">8</span>),</span>
+<span id="cb11-14"><a href="data.html#cb11-14"></a>    <span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">8</span>, <span class="dv">8</span>, <span class="dv">6</span>, <span class="dv">5</span>),</span>
+<span id="cb11-15"><a href="data.html#cb11-15"></a>    <span class="dt">rel =</span> <span class="st">&quot;receives&quot;</span>,</span>
+<span id="cb11-16"><a href="data.html#cb11-16"></a>    <span class="dt">arrowhead =</span> <span class="st">&quot;dot&quot;</span>,</span>
+<span id="cb11-17"><a href="data.html#cb11-17"></a>    <span class="dt">color =</span> <span class="st">&quot;red&quot;</span>)</span>
+<span id="cb11-18"><a href="data.html#cb11-18"></a></span>
+<span id="cb11-19"><a href="data.html#cb11-19"></a><span class="co"># Combine edge data frames with &#39;combine_edfs&#39;</span></span>
+<span id="cb11-20"><a href="data.html#cb11-20"></a>all_edges &lt;-<span class="st"> </span><span class="kw">combine_edfs</span>(edges_<span class="dv">1</span>, edges_<span class="dv">2</span>)</span>
+<span id="cb11-21"><a href="data.html#cb11-21"></a></span>
+<span id="cb11-22"><a href="data.html#cb11-22"></a>all_edges</span>
+<span id="cb11-23"><a href="data.html#cb11-23"></a><span class="co">#&gt;   id from to      rel color data arrowhead</span></span>
+<span id="cb11-24"><a href="data.html#cb11-24"></a><span class="co">#&gt; 1  1    1  2 requires green  2.7      &lt;NA&gt;</span></span>
+<span id="cb11-25"><a href="data.html#cb11-25"></a><span class="co">#&gt; 2  2    1  4 requires green  8.9      &lt;NA&gt;</span></span>
+<span id="cb11-26"><a href="data.html#cb11-26"></a><span class="co">#&gt; 3  3    2  4 requires green  2.6      &lt;NA&gt;</span></span>
+<span id="cb11-27"><a href="data.html#cb11-27"></a><span class="co">#&gt; 4  4    3  1 requires green  0.6      &lt;NA&gt;</span></span>
+<span id="cb11-28"><a href="data.html#cb11-28"></a><span class="co">#&gt; 5  5    5  8 receives   red   NA       dot</span></span>
+<span id="cb11-29"><a href="data.html#cb11-29"></a><span class="co">#&gt; 6  6    7  8 receives   red   NA       dot</span></span>
+<span id="cb11-30"><a href="data.html#cb11-30"></a><span class="co">#&gt; 7  7    8  6 receives   red   NA       dot</span></span>
+<span id="cb11-31"><a href="data.html#cb11-31"></a><span class="co">#&gt; 8  8    8  5 receives   red   NA       dot</span></span></code></pre></div>
+
+</div>
+</div>
+<h3>References</h3>
+<div id="refs" class="references">
+<div id="ref-xie2015">
+<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
+</div>
+<div id="ref-R-bookdown">
+<p>Xie, Yihui. 2019. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="likscale.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["template-build.pdf", "template-build.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
