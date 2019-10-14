@@ -113,6 +113,253 @@ digraph boxes_and_circles {
 ")
 ```
 
-## Flow diagram
+## Flow diagram {.tabset}
 
 Here I think we should add the relationship to each question and the proposed hypothesis...
+
+### v1
+
+```{r}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Q1; error
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  1; 2; 3; 4;
+
+  # several 'edge' statements
+  Q1->1 Q1->2 Q1->3 Q1->4 
+  1->general 2->general 3->A 4->D 4->G 4->F
+  E->3 4->V 1->C 2->H 3->M E ->error
+}
+")
+```
+
+### v2 
+
+A similar automatic report can be generated using by using the DIY_ANOVA app [here](https://pecostats.shinyapps.io/DIY_ANOVA/). It consists of a reduced version of the following report and sections.
+
+
+```{r fig.height=4, fig.width=4, include = TRUE}
+library(DiagrammeR)
+# ?DiagrammeR
+# grViz("
+#   digraph {
+#     layout = twopi
+#     node [shape = circle]
+#     Y -> {B} {C D}
+#   }")
+# par(mfrow = c(2,1))
+
+grViz("
+#add nodes
+  digraph boxes_and_circles{
+  node [shape = circle]
+  Normality; No; Yes; NoTransform; Transform
+  node [shape = square]
+  lm;glm;shinyDIYanova
+#edge statements
+edge [arrowhead = none]
+Normality->No
+Normality->Yes
+Yes->NoTransform
+NoTransform->shinyDIYanova
+No->Transform
+Transform->lm
+Transform->glm
+  }"
+)
+
+```
+
+```{r }
+grViz("digraph flowchart {
+      # node definitions with substituted label text
+      node [fontname = Helvetica, shape = rectangle]        
+      tab1 [label = '@@1']
+      tab2 [label = '@@2']
+      tab3 [label = '@@3']
+      tab4 [label = '@@4']
+      tab5 [label = '@@5']
+
+      # edge definitions with the node IDs
+      tab1 -> tab2 -> tab3 -> tab4 -> tab5;
+      }
+
+      [1]: 'Questionnaire sent to n=1000 participants'
+      [2]: 'Participants responded to questionnaire n=850'
+      [3]: 'Participants came to clinic for evaluation n=700'
+      [4]: 'Participants eligible for the study n=600'
+      [5]: 'Study sample n=600'
+      ")
+
+# note the whitespace is not important
+DiagrammeR("
+  graph LR
+    A-->B
+    A-->C
+    C-->E
+    B-->D
+    C-->D
+    D-->F
+    E-->F
+")
+
+DiagrammeR("
+   graph TB
+   A-->B
+   A-->C
+   C-->E
+   B-->D
+   C-->D
+   D-->F
+   E-->F
+")
+
+DiagrammeR("graph LR;A(Rounded)-->B[Squared];B-->C{A Decision};
+ C-->D[Square One];C-->E[Square Two];
+ style A fill:#E5E25F;  style B fill:#87AB51; style C fill:#3C8937;
+ style D fill:#23772C;  style E fill:#B6E6E6;"
+)
+
+# Load in the 'mtcars' dataset
+data(mtcars)
+connections <- sapply(
+ 1:ncol(mtcars)
+  ,function(i) {
+     paste0(
+        i
+      ,"(",colnames(mtcars)[i],")---"
+      ,i,"-stats("
+      ,paste0(
+        names(summary(mtcars[,i]))
+        ,": "
+        ,unname(summary(mtcars[,i]))
+        ,collapse="<br/>"
+      )
+      ,")"
+   )
+ }
+)
+
+DiagrammeR(
+   paste0(
+     "graph TD;", "\n",
+     paste(connections, collapse = "\n"),"\n",
+     "classDef column fill:#0001CC, stroke:#0D3FF3, stroke-width:1px;" ,"\n",
+     "class ", paste0(1:length(connections), collapse = ","), " column;"
+   )
+ )
+
+# also with DiagrammeR() you can use tags from htmltools
+# just make sure to use class = "mermaid"
+library(htmltools)
+diagramSpec = "
+graph LR;
+  id1(Start)-->id2(Stop);
+  style id1 fill:#f9f,stroke:#333,stroke-width:4px;
+  style id2 fill:#ccf,stroke:#f66,stroke-width:2px,stroke-dasharray: 5, 5;
+"
+html_print(tagList(
+  tags$h1("R + mermaid.js = Something Special")
+  ,tags$pre(diagramSpec)
+  ,tags$div(class="mermaid",diagramSpec)
+  ,DiagrammeR()
+))
+
+# sequence diagrams
+# Using this "How to Draw a Sequence Diagram"
+#   http://www.cs.uku.fi/research/publications/reports/A-2003-1/page91.pdf
+# draw some sequence diagrams with DiagrammeR
+
+library(DiagrammeR)
+
+DiagrammeR("
+sequenceDiagram;
+   customer->>ticket seller: ask for ticket;
+   ticket seller->>database: seats;
+   alt tickets available
+     database->>ticket seller: ok;
+     ticket seller->>customer: confirm;
+     customer->>ticket seller: ok;
+     ticket seller->>database: book a seat;
+     ticket seller->>printer: print ticket;
+   else sold out
+     database->>ticket seller: none left;
+     ticket seller->>customer:  sorry;
+   end
+")
+```
+
+### v3
+
+```{r}
+var <- c("scale","name","Q1.1","Q1.2","Q1.3","Q1.4","Q2.1","Q2.2","Q2.3","Q2.4","Q2.5","Q2.6","Q2.7","Q2.8","Q2.9","Q2.10","Q3.1","Q3.2","Q3.3","Q4.1","Q4.2","Q5.1","Q5.2","Q5.3")
+
+# dat <- read.csv("./data/overall_dummy_data.csv")
+# glimpse(dat)
+
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Q1; Q2; Q3; Q4; Q5; error
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  1; 2; 3; 4; 5; 6; 7; 8
+
+  # several 'edge' statements
+  Q1->1 Q1->2 Q1->3 Q1->4 
+  Q2->5 Q2->6 Q2->7 Q2->8 Q2->9 Q2->10 Q1->11 Q2->12 Q2->13 Q2->14
+  Q3->15 Q3->16 Q3->17
+  Q4->18 Q4->19
+  Q5->20 Q5->21 Q5->22
+  1->general 2->general 1->A 2->D 1->G 1->F
+  E->6 4->V 5->C 6->H 3->M
+}
+")
+
+```
+
+### v4
+
+```{r echo = FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica,
+        fill = grey50]
+  Q1; Q2; Q3; Q4; error
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  1; 2; 3; 4;
+
+  # several 'edge' statements
+  Q1->1 Q2->2 Q3->3 Q4->4 
+  1->id 2->general 3->birth 4->location 4->time 4->space E->offspring 4->sex 1->age 2->size 3->status error->E
+}
+")
+```
