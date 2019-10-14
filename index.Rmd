@@ -17,11 +17,11 @@ knitr::write_bib(c(
 ), 'packages.bib')
 ```
 
-```{r setupsdv, include=FALSE}
+```{r include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-```{r librariefbs, message=FALSE, warning=FALSE, include=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library(DiagrammeR)
 library(DiagrammeRsvg)
 library(testthat)

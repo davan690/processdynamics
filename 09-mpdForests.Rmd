@@ -1,4 +1,4 @@
-# NZ Beech Forests {#nzbs}
+# NZ Mixed Forests {#mpd}
 
 $$log(N) = Control + Valley + Rats + Control:Rats$$
 $$r_{j,t} = \beta_{0,s,v,c} + \beta_{1,s,v,c} (S_{j,t})+ \beta_{2,s,v,c} (N_{j,t-1}) + \beta_{3,s,v,c} (R_{j,t-1})$$

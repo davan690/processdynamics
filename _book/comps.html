@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 5 Likert Scales | Diagrams</title>
+  <title>Chapter 3 Software and Hardware | Diagrams</title>
   <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 5 Likert Scales | Diagrams" />
+  <meta property="og:title" content="Chapter 3 Software and Hardware | Diagrams" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 5 Likert Scales | Diagrams" />
+  <meta name="twitter:title" content="Chapter 3 Software and Hardware | Diagrams" />
   
   <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="sppPro.html"/>
-<link rel="next" href="mixed.html"/>
+<link rel="prev" href="intro.html"/>
+<link rel="next" href="sppPro.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -229,59 +229,123 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="likscale" class="section level1">
-<h1><span class="header-section-number">Chapter 5</span> Likert Scales</h1>
-<div id="the-problem" class="section level2">
-<h2><span class="header-section-number">5.1</span> The problem</h2>
-<p>To build a sampling design that accounts for the issues and nature of data collection of foriegn bank movements using person-to-person == surveys.</p>
+<div id="comps" class="section level1">
+<h1><span class="header-section-number">Chapter 3</span> Software and Hardware</h1>
+<p>This is a great question I have been playing around with to help learn how to use the <code>diagrammeR</code> package. The question is:
+<br>
+<strong>What is the difference between software and hardware?</strong>
+<br></p>
+<pre><code>## -- Attaching packages ---------------------------------------------------------------- tidyverse 1.2.1 --</code></pre>
+<pre><code>## v ggplot2 3.2.1     v purrr   0.3.2
+## v tibble  2.1.3     v dplyr   0.8.3
+## v tidyr   1.0.0     v stringr 1.4.0
+## v readr   1.3.1     v forcats 0.4.0</code></pre>
+<pre><code>## -- Conflicts ------------------------------------------------------------------- tidyverse_conflicts() --
+## x dplyr::filter()  masks stats::filter()
+## x purrr::is_null() masks testthat::is_null()
+## x dplyr::lag()     masks stats::lag()
+## x dplyr::matches() masks tidyr::matches(), testthat::matches()</code></pre>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<p>I thought that is was an obvious difference. Hardware is the stuff that makes the software work.</p>
+<p>For example, <code>RAM</code> is hardware, <code>word</code> is software?</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Software</th>
+<th align="left">Hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">R</td>
+<td align="left">RAM</td>
+</tr>
+<tr class="even">
+<td align="left">word</td>
+<td align="left">CPU</td>
+</tr>
+<tr class="odd">
+<td align="left">excel</td>
+<td align="left">Processors</td>
+</tr>
+</tbody>
+</table>
+<div id="software" class="section level2 tabset">
+<h2><span class="header-section-number">3.1</span> Software</h2>
+<p>But the problem is when somebody knows the interface (software that uses many types of software). Examples of this are programs like <code>RStudio</code>, <code>vs-code</code> and other such programs. This is because they are a single piece of software that uses “heaps” of other software.</p>
+<div id="htmlwidget-707d194dfa769f9ee568" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-707d194dfa769f9ee568">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  Scrap\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  revtools; rmarkdown; report\n  \n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  data\n\n  # several \"edge\" statements\n  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>But then each bit of software such as <code>GIT</code> and <code>R</code> can be accessed by many different types of software…so is <code>R</code> not just hardware then?</p>
+<div id="htmlwidget-d5c62043796c42611e2c" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d5c62043796c42611e2c">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  RStudio; \"vs-code\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  R; GIT; Python\n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  www\n\n  # several \"edge\" statements\n  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www\n  \"vs-code\"->GIT \"vs-code\"->R \"vs-code\"->Python\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>And now the question becomes about the definition of what software and hardware are…</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">Software</th>
+<th align="left">Hardware</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">R</td>
+<td align="left">RAM</td>
+</tr>
+<tr class="even">
+<td align="left">word</td>
+<td align="left">CPU</td>
+</tr>
+<tr class="odd">
+<td align="left">excel</td>
+<td align="left">Processors</td>
+</tr>
+</tbody>
+</table>
+<div id="rstudio" class="section level3">
+<h3><span class="header-section-number">3.1.1</span> RStudio</h3>
+<p>But the problem is when somebody knows the interface (software that uses many types of software). Examples of this are programs like <code>RStudio</code>, <code>vs-code</code> and other such programs. This is because they are a single piece of software that uses “heaps” of other software.</p>
+<div id="htmlwidget-b00c94cc2ce7441e4524" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b00c94cc2ce7441e4524">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  RStudio\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  R; GIT; Python\n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  www\n\n  # several \"edge\" statements\n  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="method" class="section level2">
-<h2><span class="header-section-number">5.2</span> Method</h2>
-<p>Here we want to address the key objectives of our reseach by collecting data in an unbias and representative way. To understand the true underlying trends in the data a pilot study with a large enough sample is explored below.</p>
-<p>Here we have a difficult question to address due to the bias in the data capture method. This is really interesting and challenging from a statistical prospective. This is also a problem that the qualitative approach fails to address (waiting to see what others say about this..?)</p>
-<p>Here is a step-by-step to approach to this research in a quantativite way:</p>
-<ol style="list-style-type: decimal">
-<li>The questions are grouped into sets of questions that all address a general objective or question the research has. We can first see if these patterns are true for the responses. These are as follows:</li>
-</ol>
-<div id="htmlwidget-ff80c7770f3ea2aee04c" style="width:960px;height:576px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-ff80c7770f3ea2aee04c">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4;\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q1->4 \n  1->general 2->general 3->A 4->D 4->G 4->F\n  E->3 4->V 1->C 2->H 3->M E ->error\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>There are several issues with this because the data collected is often non-normal and needs to be transformed. The first step however is to simply visualise the data in a way that we will also be fitting the statistical models.</p>
-<div id="htmlwidget-93d6054c340fc38a07a1" style="width:960px;height:576px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-93d6054c340fc38a07a1">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; Q2; Q3; Q4; Q5; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q1->4 \n  Q2->5 Q2->6 Q2->7 Q2->8 Q2->9 Q2->10 Q1->11 Q2->12 Q2->13 Q2->14\n  Q3->15 Q3->16 Q3->17\n  Q4->18 Q4->19\n  Q5->20 Q5->21 Q5->22\n  1->general 2->general 1->A 2->D 1->G 1->F\n  E->6 4->V 5->C 6->H 3->M\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p>There is some simple dataset transformations that can be done to make it easier to work with the data in the plotting functions.</p>
-<div id="htmlwidget-973d1e89a36e0ee920e7" style="width:960px;height:576px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-973d1e89a36e0ee920e7">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  Q1; Q2; Q3; Q4; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4;\n\n  # several \"edge\" statements\n  Q1->1 Q2->2 Q3->3 Q4->4 \n  1->id 2->general 3->birth 4->location 4->time 4->space E->offspring 4->sex 1->age 2->size 3->status error->E\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="vs-code" class="section level3">
+<h3><span class="header-section-number">3.1.2</span> ‘vs-code’</h3>
+<p>But then each bit of software such as <code>GIT</code> and <code>R</code> can be accessed by many different types of software…so is <code>R</code> not just hardware then?</p>
+<div id="htmlwidget-e2dc7ac66f90d9e8520d" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e2dc7ac66f90d9e8520d">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  \"vs-code\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  R; GIT; Python; Ruby\n  \n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  www\n\n  # several \"edge\" statements\n  \"vs-code\"->GIT \"vs-code\"->R \"vs-code\"->Python \"ruby\"->www \"vs-code\"->Ruby\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="flow-diagram" class="section level2 tabset">
-<h2><span class="header-section-number">5.3</span> Flow diagram</h2>
-<p>Here I think we should add the relationship to each question and the proposed hypothesis…</p>
-<div id="v1-1" class="section level3">
-<h3><span class="header-section-number">5.3.1</span> v1</h3>
-<div id="htmlwidget-b26be9800b81777daa05" style="width:960px;height:576px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-b26be9800b81777daa05">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4;\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q1->4 \n  1->general 2->general 3->A 4->D 4->G 4->F\n  E->3 4->V 1->C 2->H 3->M E ->error\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="r" class="section level3">
+<h3><span class="header-section-number">3.1.3</span> R</h3>
+<div id="htmlwidget-437f71e41f36e43e9e2d" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-437f71e41f36e43e9e2d">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  \"R\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  R; tidyverse; Python\n  \n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  dplyr; ggplot2; others\n\n  # several \"edge\" statements\n  R->dplyr R->ggplot2 R->others\n  tidyverse->ggplot2 tidyverse->dplyr\n  R->Python\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="v2-1" class="section level3">
-<h3><span class="header-section-number">5.3.2</span> v2</h3>
-<p>A similar automatic report can be generated using by using the DIY_ANOVA app <a href="https://pecostats.shinyapps.io/DIY_ANOVA/">here</a>. It consists of a reduced version of the following report and sections.</p>
-<div id="htmlwidget-1a461934dfb2f5a42035" style="width:384px;height:384px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1a461934dfb2f5a42035">{"x":{"diagram":"\n#add nodes\n  digraph boxes_and_circles{\n  node [shape = circle]\n  Normality; No; Yes; NoTransform; Transform\n  node [shape = square]\n  lm;glm;shinyDIYanova\n#edge statements\nedge [arrowhead = none]\nNormality->No\nNormality->Yes\nYes->NoTransform\nNoTransform->shinyDIYanova\nNo->Transform\nTransform->lm\nTransform->glm\n  }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<p><div id="htmlwidget-c06d70e38cb7d6463968" style="width:960px;height:576px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-c06d70e38cb7d6463968">{"x":{"diagram":"digraph flowchart {\n      # node definitions with substituted label text\n      node [fontname = Helvetica, shape = rectangle]        \n      tab1 [label = \"Questionnaire sent to n=1000 participants\"]\n      tab2 [label = \"Participants responded to questionnaire n=850\"]\n      tab3 [label = \"Participants came to clinic for evaluation n=700\"]\n      tab4 [label = \"Participants eligible for the study n=600\"]\n      tab5 [label = \"Study sample n=600\"]\n\n      # edge definitions with the node IDs\n      tab1 -> tab2 -> tab3 -> tab4 -> tab5;\n      }","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-7f4b18d42b66ca1bd6ac" style="width:960px;height:576px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-7f4b18d42b66ca1bd6ac">{"x":{"diagram":"\n  graph LR\n    A-->B\n    A-->C\n    C-->E\n    B-->D\n    C-->D\n    D-->F\n    E-->F\n"},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-413815656adc42f9e01b" style="width:960px;height:576px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-413815656adc42f9e01b">{"x":{"diagram":"\n   graph TB\n   A-->B\n   A-->C\n   C-->E\n   B-->D\n   C-->D\n   D-->F\n   E-->F\n"},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-d59ecdd19d8dcdf42591" style="width:960px;height:576px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-d59ecdd19d8dcdf42591">{"x":{"diagram":"graph LR;A(Rounded)-->B[Squared];B-->C{A Decision};\n C-->D[Square One];C-->E[Square Two];\n style A fill:#E5E25F;  style B fill:#87AB51; style C fill:#3C8937;\n style D fill:#23772C;  style E fill:#B6E6E6;"},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-5f1c03079bedda1212f3" style="width:960px;height:576px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-5f1c03079bedda1212f3">{"x":{"diagram":"graph TD;\n1(mpg)---1-stats(Min.: 10.4<br/>1st Qu.: 15.425<br/>Median: 19.2<br/>Mean: 20.090625<br/>3rd Qu.: 22.8<br/>Max.: 33.9)\n2(cyl)---2-stats(Min.: 4<br/>1st Qu.: 4<br/>Median: 6<br/>Mean: 6.1875<br/>3rd Qu.: 8<br/>Max.: 8)\n3(disp)---3-stats(Min.: 71.1<br/>1st Qu.: 120.825<br/>Median: 196.3<br/>Mean: 230.721875<br/>3rd Qu.: 326<br/>Max.: 472)\n4(hp)---4-stats(Min.: 52<br/>1st Qu.: 96.5<br/>Median: 123<br/>Mean: 146.6875<br/>3rd Qu.: 180<br/>Max.: 335)\n5(drat)---5-stats(Min.: 2.76<br/>1st Qu.: 3.08<br/>Median: 3.695<br/>Mean: 3.5965625<br/>3rd Qu.: 3.92<br/>Max.: 4.93)\n6(wt)---6-stats(Min.: 1.513<br/>1st Qu.: 2.58125<br/>Median: 3.325<br/>Mean: 3.21725<br/>3rd Qu.: 3.61<br/>Max.: 5.424)\n7(qsec)---7-stats(Min.: 14.5<br/>1st Qu.: 16.8925<br/>Median: 17.71<br/>Mean: 17.84875<br/>3rd Qu.: 18.9<br/>Max.: 22.9)\n8(vs)---8-stats(Min.: 0<br/>1st Qu.: 0<br/>Median: 0<br/>Mean: 0.4375<br/>3rd Qu.: 1<br/>Max.: 1)\n9(am)---9-stats(Min.: 0<br/>1st Qu.: 0<br/>Median: 0<br/>Mean: 0.40625<br/>3rd Qu.: 1<br/>Max.: 1)\n10(gear)---10-stats(Min.: 3<br/>1st Qu.: 3<br/>Median: 4<br/>Mean: 3.6875<br/>3rd Qu.: 4<br/>Max.: 5)\n11(carb)---11-stats(Min.: 1<br/>1st Qu.: 2<br/>Median: 2<br/>Mean: 2.8125<br/>3rd Qu.: 4<br/>Max.: 8)\nclassDef column fill:#0001CC, stroke:#0D3FF3, stroke-width:1px;\nclass 1,2,3,4,5,6,7,8,9,10,11 column;"},"evals":[],"jsHooks":[]}</script><div id="htmlwidget-57e4ee415e363f3af111" style="width:960px;height:576px;" class="DiagrammeR html-widget"></div>
-<script type="application/json" data-for="htmlwidget-57e4ee415e363f3af111">{"x":{"diagram":"\nsequenceDiagram;\n   customer->>ticket seller: ask for ticket;\n   ticket seller->>database: seats;\n   alt tickets available\n     database->>ticket seller: ok;\n     ticket seller->>customer: confirm;\n     customer->>ticket seller: ok;\n     ticket seller->>database: book a seat;\n     ticket seller->>printer: print ticket;\n   else sold out\n     database->>ticket seller: none left;\n     ticket seller->>customer:  sorry;\n   end\n"},"evals":[],"jsHooks":[]}</script></p>
 </div>
-<div id="v3-1" class="section level3">
-<h3><span class="header-section-number">5.3.3</span> v3</h3>
-<div id="htmlwidget-12ddd7d1df813b8664ab" style="width:960px;height:576px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-12ddd7d1df813b8664ab">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; Q2; Q3; Q4; Q5; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q1->4 \n  Q2->5 Q2->6 Q2->7 Q2->8 Q2->9 Q2->10 Q1->11 Q2->12 Q2->13 Q2->14\n  Q3->15 Q3->16 Q3->17\n  Q4->18 Q4->19\n  Q5->20 Q5->21 Q5->22\n  1->general 2->general 1->A 2->D 1->G 1->F\n  E->6 4->V 5->C 6->H 3->M\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="computer-processes" class="section level2 tabset">
+<h2><span class="header-section-number">3.2</span> Computer processes</h2>
+<div id="rstudio-1" class="section level3">
+<h3><span class="header-section-number">3.2.1</span> RStudio</h3>
+<p>This is an example of a piece of software. It needs your computer (hardware) to run so therefore it is software. Just the same as <code>R</code>….but not really.</p>
+<div id="a-simple-rscript" class="section level4">
+<h4><span class="header-section-number">3.2.1.1</span> A simple <code>Rscript</code></h4>
+<div id="htmlwidget-61dba61fdabe01fae789" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-61dba61fdabe01fae789">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  RStudio\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  word; html; pdf; R\n  \n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  www\n\n  # several \"edge\" statements\n  RStudio->R R->word R->html R->pdf html->www\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>But this is not really what is happening. For example this is the <code>RMarkdown</code> figure for this process:</p>
+<div id="htmlwidget-f8e132be8eef5f107abf" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f8e132be8eef5f107abf">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  RMD; MD\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  word; html; pdf\n  \n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  www\n\n  # several \"edge\" statements\n  RMD->MD MD->word MD->html MD->pdf html->www \n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="v4-1" class="section level3">
-<h3><span class="header-section-number">5.3.4</span> v4</h3>
-<div id="htmlwidget-1ed94823031ee97fbfe2" style="width:960px;height:576px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-1ed94823031ee97fbfe2">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  Q1; Q2; Q3; Q4; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4;\n\n  # several \"edge\" statements\n  Q1->1 Q2->2 Q3->3 Q4->4 \n  1->id 2->general 3->birth 4->location 4->time 4->space E->offspring 4->sex 1->age 2->size 3->status error->E\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="v3" class="section level3">
+<h3><span class="header-section-number">3.2.2</span> v3</h3>
+<div id="htmlwidget-93be8bf4d6b79ef54d5f" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-93be8bf4d6b79ef54d5f">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Q1; Q2; Q3; Q4; Q5; error\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  1; 2; 3; 4; 5; 6; 7; 8\n\n  # several \"edge\" statements\n  Q1->1 Q1->2 Q1->3 Q1->4 \n  Q2->5 Q2->6 Q2->7 Q2->8 Q2->9 Q2->10 Q1->11 Q2->12 Q2->13 Q2->14\n  Q3->15 Q3->16 Q3->17\n  Q4->18 Q4->19\n  Q5->20 Q5->21 Q5->22\n  1->general 2->general 1->A 2->D 1->G 1->F\n  E->6 4->V 5->C 6->H 3->M\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+</div>
+<div id="v4" class="section level3">
+<h3><span class="header-section-number">3.2.3</span> v4</h3>
+<div id="htmlwidget-d3d371ad7a135b2cdcbd" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-d3d371ad7a135b2cdcbd">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica,\n        fill = grey50]\n  RStudio\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  R; GIT; Python\n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  www\n\n  # several \"edge\" statements\n  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 
 </div>
 </div>
@@ -291,8 +355,8 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           </div>
         </div>
       </div>
-<a href="sppPro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="mixed.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="intro.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="sppPro.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -324,7 +388,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/davan690/processdynamics/docs/edit/master/06-likert_scales.Rmd",
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/03-computers.Rmd",
 "text": "Edit"
 },
 "history": {

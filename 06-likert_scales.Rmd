@@ -2,7 +2,7 @@
 
 ## The problem
 
-```{r load_packfdbages, message=FALSE, warning=FALSE, include=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library(DiagrammeR)
 ```
 

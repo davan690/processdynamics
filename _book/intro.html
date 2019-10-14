@@ -4,27 +4,27 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introduction | A Minimal Book Example</title>
-  <meta name="description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <title>Chapter 2 Introduction | Diagrams</title>
+  <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introduction | A Minimal Book Example" />
+  <meta property="og:title" content="Chapter 2 Introduction | Diagrams" />
   <meta property="og:type" content="book" />
   
   
-  <meta property="og:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta property="og:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introduction | A Minimal Book Example" />
+  <meta name="twitter:title" content="Chapter 2 Introduction | Diagrams" />
   
-  <meta name="twitter:description" content="This is a minimal example of using the bookdown package to write a book. The output format for this example is bookdown::gitbook." />
+  <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
 
-<meta name="author" content="Yihui Xie" />
+<meta name="author" content="Anthony Davidson" />
 
 
-<meta name="date" content="2019-10-10" />
+<meta name="date" content="2019-10-14" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -32,7 +32,7 @@
   
   
 <link rel="prev" href="index.html"/>
-<link rel="next" href="data.html"/>
+<link rel="next" href="comps.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -50,10 +50,16 @@
 
 
 
-<script src="libs/htmlwidgets-1.5/htmlwidgets.js"></script>
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
 <script src="libs/viz-0.3/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/grViz-binding-1.0.1/grViz.js"></script>
+<script src="libs/d3-3.3.8/d3.min.js"></script>
+<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
+<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
+<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
+<script src="libs/chromatography-0.1/chromatography.js"></script>
+<script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -134,32 +140,77 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <nav role="navigation">
 
 <ul class="summary">
-<li><a href="./">A Minimal Book Example</a></li>
+<li><a href="./">All sorts of flow diagrams</a></li>
 
 <li class="divider"></li>
 <li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Examples</a></li>
 <li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
-<li class="chapter" data-level="2.0.1" data-path="intro.html"><a href="intro.html#email-replies-in-more-detail"><i class="fa fa-check"></i><b>2.0.1</b> Email replies in more detail</a></li>
-<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#overall"><i class="fa fa-check"></i><b>2.1</b> Overall</a><ul>
-<li class="chapter" data-level="2.1.1" data-path="intro.html"><a href="intro.html#principal-component-analysis"><i class="fa fa-check"></i><b>2.1.1</b> Principal component analysis</a></li>
-<li class="chapter" data-level="2.1.2" data-path="intro.html"><a href="intro.html#normalization"><i class="fa fa-check"></i><b>2.1.2</b> Normalization</a></li>
-<li class="chapter" data-level="2.1.3" data-path="intro.html"><a href="intro.html#mixed-models"><i class="fa fa-check"></i><b>2.1.3</b> Mixed models</a></li>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#resources"><i class="fa fa-check"></i><b>2.1</b> Resources</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#my-notes"><i class="fa fa-check"></i><b>2.2</b> My notes</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#examples"><i class="fa fa-check"></i><b>2.2.1</b> Examples</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#math-insert"><i class="fa fa-check"></i><b>2.2.2</b> Math insert</a></li>
+<li class="chapter" data-level="2.2.3" data-path="intro.html"><a href="intro.html#kol-but-not-working"><i class="fa fa-check"></i><b>2.2.3</b> Kol but not working</a></li>
+<li class="chapter" data-level="2.2.4" data-path="intro.html"><a href="intro.html#mixed-models"><i class="fa fa-check"></i><b>2.2.4</b> Mixed models</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="3" data-path="data.html"><a href="data.html"><i class="fa fa-check"></i><b>3</b> Node and Edge Data Frames</a><ul>
-<li class="chapter" data-level="3.0.1" data-path="data.html"><a href="data.html#node-and-edge-data-frames"><i class="fa fa-check"></i><b>3.0.1</b> Node and Edge Data Frames</a></li>
-<li class="chapter" data-level="3.0.2" data-path="data.html"><a href="data.html#creating-an-ndf"><i class="fa fa-check"></i><b>3.0.2</b> Creating an NDF</a></li>
-<li class="chapter" data-level="3.0.3" data-path="data.html"><a href="data.html#creating-an-edf"><i class="fa fa-check"></i><b>3.0.3</b> Creating an EDF</a></li>
-<li class="chapter" data-level="3.0.4" data-path="data.html"><a href="data.html#combining-ndfs"><i class="fa fa-check"></i><b>3.0.4</b> Combining NDFs</a></li>
-<li class="chapter" data-level="3.0.5" data-path="data.html"><a href="data.html#combining-edfs"><i class="fa fa-check"></i><b>3.0.5</b> Combining EDFs</a></li>
+<li class="chapter" data-level="3" data-path="comps.html"><a href="comps.html"><i class="fa fa-check"></i><b>3</b> Software and Hardware</a><ul>
+<li class="chapter" data-level="3.1" data-path="comps.html"><a href="comps.html#software"><i class="fa fa-check"></i><b>3.1</b> Software</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="comps.html"><a href="comps.html#rstudio"><i class="fa fa-check"></i><b>3.1.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.1.2" data-path="comps.html"><a href="comps.html#vs-code"><i class="fa fa-check"></i><b>3.1.2</b> ‘vs-code’</a></li>
+<li class="chapter" data-level="3.1.3" data-path="comps.html"><a href="comps.html#r"><i class="fa fa-check"></i><b>3.1.3</b> R</a></li>
 </ul></li>
-<li class="chapter" data-level="4" data-path="likscale.html"><a href="likscale.html"><i class="fa fa-check"></i><b>4</b> Likert Scales</a><ul>
-<li class="chapter" data-level="4.1" data-path="likscale.html"><a href="likscale.html#the-problem"><i class="fa fa-check"></i><b>4.1</b> The problem</a></li>
-<li class="chapter" data-level="4.2" data-path="likscale.html"><a href="likscale.html#method"><i class="fa fa-check"></i><b>4.2</b> Method</a></li>
-<li class="chapter" data-level="4.3" data-path="likscale.html"><a href="likscale.html#flow-diagram"><i class="fa fa-check"></i><b>4.3</b> Flow diagram</a></li>
+<li class="chapter" data-level="3.2" data-path="comps.html"><a href="comps.html#computer-processes"><i class="fa fa-check"></i><b>3.2</b> Computer processes</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="comps.html"><a href="comps.html#rstudio-1"><i class="fa fa-check"></i><b>3.2.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="comps.html"><a href="comps.html#v3"><i class="fa fa-check"></i><b>3.2.2</b> v3</a></li>
+<li class="chapter" data-level="3.2.3" data-path="comps.html"><a href="comps.html#v4"><i class="fa fa-check"></i><b>3.2.3</b> v4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sppPro.html"><a href="sppPro.html"><i class="fa fa-check"></i><b>4</b> Interacting Species</a><ul>
+<li class="chapter" data-level="4.1" data-path="sppPro.html"><a href="sppPro.html#three-species-models"><i class="fa fa-check"></i><b>4.1</b> Three species models</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sppPro.html"><a href="sppPro.html#v1"><i class="fa fa-check"></i><b>4.1.1</b> v1</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sppPro.html"><a href="sppPro.html#v2"><i class="fa fa-check"></i><b>4.1.2</b> v2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="likscale.html"><a href="likscale.html"><i class="fa fa-check"></i><b>5</b> Likert Scales</a><ul>
+<li class="chapter" data-level="5.1" data-path="likscale.html"><a href="likscale.html#the-problem"><i class="fa fa-check"></i><b>5.1</b> The problem</a></li>
+<li class="chapter" data-level="5.2" data-path="likscale.html"><a href="likscale.html#method"><i class="fa fa-check"></i><b>5.2</b> Method</a></li>
+<li class="chapter" data-level="5.3" data-path="likscale.html"><a href="likscale.html#flow-diagram"><i class="fa fa-check"></i><b>5.3</b> Flow diagram</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="likscale.html"><a href="likscale.html#v1-1"><i class="fa fa-check"></i><b>5.3.1</b> v1</a></li>
+<li class="chapter" data-level="5.3.2" data-path="likscale.html"><a href="likscale.html#v2-1"><i class="fa fa-check"></i><b>5.3.2</b> v2</a></li>
+<li class="chapter" data-level="5.3.3" data-path="likscale.html"><a href="likscale.html#v3-1"><i class="fa fa-check"></i><b>5.3.3</b> v3</a></li>
+<li class="chapter" data-level="5.3.4" data-path="likscale.html"><a href="likscale.html#v4-1"><i class="fa fa-check"></i><b>5.3.4</b> v4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mixed.html"><a href="mixed.html"><i class="fa fa-check"></i><b>6</b> Mixed regression models</a><ul>
+<li class="chapter" data-level="6.1" data-path="mixed.html"><a href="mixed.html#models"><i class="fa fa-check"></i><b>6.1</b> Models</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="mixed.html"><a href="mixed.html#constant-only"><i class="fa fa-check"></i><b>6.1.1</b> Constant only</a></li>
+<li class="chapter" data-level="6.1.2" data-path="mixed.html"><a href="mixed.html#single-predictor"><i class="fa fa-check"></i><b>6.1.2</b> Single predictor</a></li>
+<li class="chapter" data-level="6.1.3" data-path="mixed.html"><a href="mixed.html#multi-level-v1"><i class="fa fa-check"></i><b>6.1.3</b> Multi-level v1</a></li>
+<li class="chapter" data-level="6.1.4" data-path="mixed.html"><a href="mixed.html#multi-level-v2"><i class="fa fa-check"></i><b>6.1.4</b> Multi-level v2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="nzbs.html"><a href="nzbs.html"><i class="fa fa-check"></i><b>7</b> NZ Beech Forests</a><ul>
+<li class="chapter" data-level="7.1" data-path="nzbs.html"><a href="nzbs.html#draft-ideas"><i class="fa fa-check"></i><b>7.1</b> Draft ideas</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="nzbs.html"><a href="nzbs.html#v1-2"><i class="fa fa-check"></i><b>7.1.1</b> v1</a></li>
+<li class="chapter" data-level="7.1.2" data-path="nzbs.html"><a href="nzbs.html#v2-2"><i class="fa fa-check"></i><b>7.1.2</b> v2</a></li>
+<li class="chapter" data-level="7.1.3" data-path="nzbs.html"><a href="nzbs.html#v3-2"><i class="fa fa-check"></i><b>7.1.3</b> v3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="mpd.html"><a href="mpd.html"><i class="fa fa-check"></i><b>8</b> NZ Mixed Forests</a><ul>
+<li class="chapter" data-level="8.1" data-path="mpd.html"><a href="mpd.html#draft-ideas-1"><i class="fa fa-check"></i><b>8.1</b> Draft ideas</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="mpd.html"><a href="mpd.html#v1-3"><i class="fa fa-check"></i><b>8.1.1</b> v1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="mpd.html"><a href="mpd.html#v2-3"><i class="fa fa-check"></i><b>8.1.2</b> v2</a></li>
+<li class="chapter" data-level="8.1.3" data-path="mpd.html"><a href="mpd.html#v3-3"><i class="fa fa-check"></i><b>8.1.3</b> v3</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="mpd.html"><a href="mpd.html#draft-processes"><i class="fa fa-check"></i><b>8.2</b> Draft processes</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="mpd.html"><a href="mpd.html#mice"><i class="fa fa-check"></i><b>8.2.1</b> Mice</a></li>
+<li class="chapter" data-level="8.2.2" data-path="mpd.html"><a href="mpd.html#mice-and-rats"><i class="fa fa-check"></i><b>8.2.2</b> Mice and Rats</a></li>
+<li class="chapter" data-level="8.2.3" data-path="mpd.html"><a href="mpd.html#mice-rats-and-possums"><i class="fa fa-check"></i><b>8.2.3</b> Mice, rats and possums</a></li>
+<li class="chapter" data-level="8.2.4" data-path="mpd.html"><a href="mpd.html#mice-rats-possums-and-stoats"><i class="fa fa-check"></i><b>8.2.4</b> Mice, rats, possums and stoats</a></li>
+</ul></li>
 </ul></li>
 <li class="divider"></li>
-<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+<li><a href="https://github.com/davan690/processdynamics" target="blank">Published with bookdown</a></li>
 
 </ul>
 
@@ -170,7 +221,7 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
       <div class="body-inner">
         <div class="book-header" role="navigation">
           <h1>
-            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">A Minimal Book Example</a>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Diagrams</a>
           </h1>
         </div>
 
@@ -180,209 +231,66 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
             <section class="normal" id="section-">
 <div id="intro" class="section level1">
 <h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
-<p>You can label chapter and section titles using <code>{#label}</code> after them, e.g., we can reference Chapter <a href="intro.html#intro">2</a>. If you do not manually label them, there will be automatic labels anyway, e.g., Chapter <a href="#methods"><strong>??</strong></a>.</p>
-<p>Figures and tables with captions will be placed in <code>figure</code> and <code>table</code> environments, respectively.</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb2-1"><a href="intro.html#cb2-1"></a><span class="kw">par</span>(<span class="dt">mar =</span> <span class="kw">c</span>(<span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">.1</span>, <span class="fl">.1</span>))</span>
-<span id="cb2-2"><a href="intro.html#cb2-2"></a><span class="kw">plot</span>(pressure, <span class="dt">type =</span> <span class="st">&#39;b&#39;</span>, <span class="dt">pch =</span> <span class="dv">19</span>)</span></code></pre></div>
-<div class="figure" style="text-align: center"><span id="fig:nice-figsdv"></span>
-<img src="template-build_files/figure-html/nice-figsdv-1.png" alt="Here is a nice figure!" width="80%" />
-<p class="caption">
-Figure 2.1: Here is a nice figure!
-</p>
+<p>Conceptial diagrams are vital for understanding processes and developing incremetal science, however, there seems to be very few packages or other software that aligns with the literature in how and when these diagrams should be developed.</p>
+<p>This book uses <code>R</code> and the core packages <a href="https://cran.r-project.org/web/packages/DiagrammeR/index.html"><code>diagrammeR</code></a>.</p>
+<p>There is a great resource written by the author <a href="https://rich-iannone.github.io/DiagrammeR/index.html">here</a> but I am still working out overall how the package in R works.
+- A good explaination of the features <a href="https://rich-iannone.github.io/DiagrammeR/index.html#features">here</a></p>
+<div id="resources" class="section level2">
+<h2><span class="header-section-number">2.1</span> Resources</h2>
+<p>The general concept of the package I am using is very simple but the code looks intemidating:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1"></a><span class="kw">grViz</span>(<span class="st">&quot;</span></span>
+<span id="cb1-2"><a href="intro.html#cb1-2"></a><span class="st">digraph boxes_and_circles {</span></span>
+<span id="cb1-3"><a href="intro.html#cb1-3"></a></span>
+<span id="cb1-4"><a href="intro.html#cb1-4"></a><span class="st">  # a &#39;graph&#39; statement</span></span>
+<span id="cb1-5"><a href="intro.html#cb1-5"></a><span class="st">  graph [overlap = true, fontsize = 10]</span></span>
+<span id="cb1-6"><a href="intro.html#cb1-6"></a></span>
+<span id="cb1-7"><a href="intro.html#cb1-7"></a><span class="st">  # several &#39;node&#39; statements</span></span>
+<span id="cb1-8"><a href="intro.html#cb1-8"></a><span class="st">  node [shape = box,</span></span>
+<span id="cb1-9"><a href="intro.html#cb1-9"></a><span class="st">        fontname = Helvetica]</span></span>
+<span id="cb1-10"><a href="intro.html#cb1-10"></a><span class="st">  &#39;box&#39;; &#39;shape&#39;</span></span>
+<span id="cb1-11"><a href="intro.html#cb1-11"></a></span>
+<span id="cb1-12"><a href="intro.html#cb1-12"></a><span class="st">  node [shape = circle,</span></span>
+<span id="cb1-13"><a href="intro.html#cb1-13"></a><span class="st">        fixedsize = true,</span></span>
+<span id="cb1-14"><a href="intro.html#cb1-14"></a><span class="st">        width = 0.9] // sets as circles</span></span>
+<span id="cb1-15"><a href="intro.html#cb1-15"></a><span class="st">  &#39;shape2&#39;; &#39;circles&#39;</span></span>
+<span id="cb1-16"><a href="intro.html#cb1-16"></a></span>
+<span id="cb1-17"><a href="intro.html#cb1-17"></a><span class="st">  node [shape = circle,</span></span>
+<span id="cb1-18"><a href="intro.html#cb1-18"></a><span class="st">        fixedsize = true,</span></span>
+<span id="cb1-19"><a href="intro.html#cb1-19"></a><span class="st">        width = 0.9] // sets as circles</span></span>
+<span id="cb1-20"><a href="intro.html#cb1-20"></a><span class="st">  &#39;join&#39;; &#39;arrow&#39;</span></span>
+<span id="cb1-21"><a href="intro.html#cb1-21"></a><span class="st">  </span></span>
+<span id="cb1-22"><a href="intro.html#cb1-22"></a><span class="st">  # several &#39;edge&#39; statements</span></span>
+<span id="cb1-23"><a href="intro.html#cb1-23"></a><span class="st">  join-&gt;arrow</span></span>
+<span id="cb1-24"><a href="intro.html#cb1-24"></a><span class="st">}</span></span>
+<span id="cb1-25"><a href="intro.html#cb1-25"></a><span class="st">&quot;</span>)</span></code></pre></div>
+<div id="htmlwidget-28d102fac55244309922" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-28d102fac55244309922">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  \"box\"; \"shape\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  \"shape2\"; \"circles\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  \"join\"; \"arrow\"\n  \n  # several \"edge\" statements\n  join->arrow\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<p>Reference a figure by its code chunk label with the <code>fig:</code> prefix, e.g., see Figure <a href="data.html#fig:nice-fig">3.1</a>. Similarly, you can reference tables generated from <code>knitr::kable()</code>, e.g., see Table <a href="data.html#tab:nice-tab">3.1</a>.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb3-1"><a href="intro.html#cb3-1"></a>knitr<span class="op">::</span><span class="kw">kable</span>(</span>
-<span id="cb3-2"><a href="intro.html#cb3-2"></a>  <span class="kw">head</span>(iris, <span class="dv">20</span>), <span class="dt">caption =</span> <span class="st">&#39;Here is a nice table!&#39;</span>,</span>
-<span id="cb3-3"><a href="intro.html#cb3-3"></a>  <span class="dt">booktabs =</span> <span class="ot">TRUE</span></span>
-<span id="cb3-4"><a href="intro.html#cb3-4"></a>)</span></code></pre></div>
-<table>
-<caption><span id="tab:nice-tabdsv">Table 2.1: </span>Here is a nice table!</caption>
-<thead>
-<tr class="header">
-<th align="right">Sepal.Length</th>
-<th align="right">Sepal.Width</th>
-<th align="right">Petal.Length</th>
-<th align="right">Petal.Width</th>
-<th align="left">Species</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.7</td>
-<td align="right">3.2</td>
-<td align="right">1.3</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.6</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.0</td>
-<td align="right">3.6</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.7</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.6</td>
-<td align="right">3.4</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.0</td>
-<td align="right">3.4</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.4</td>
-<td align="right">2.9</td>
-<td align="right">1.4</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.9</td>
-<td align="right">3.1</td>
-<td align="right">1.5</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.7</td>
-<td align="right">1.5</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.8</td>
-<td align="right">3.4</td>
-<td align="right">1.6</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">4.8</td>
-<td align="right">3.0</td>
-<td align="right">1.4</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">4.3</td>
-<td align="right">3.0</td>
-<td align="right">1.1</td>
-<td align="right">0.1</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.8</td>
-<td align="right">4.0</td>
-<td align="right">1.2</td>
-<td align="right">0.2</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.7</td>
-<td align="right">4.4</td>
-<td align="right">1.5</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.4</td>
-<td align="right">3.9</td>
-<td align="right">1.3</td>
-<td align="right">0.4</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.5</td>
-<td align="right">1.4</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="odd">
-<td align="right">5.7</td>
-<td align="right">3.8</td>
-<td align="right">1.7</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-<tr class="even">
-<td align="right">5.1</td>
-<td align="right">3.8</td>
-<td align="right">1.5</td>
-<td align="right">0.3</td>
-<td align="left">setosa</td>
-</tr>
-</tbody>
-</table>
-<p>You can write citations, too. For example, we are using the <strong>bookdown</strong> package <span class="citation">(Xie <a href="#ref-R-bookdown" role="doc-biblioref">2019</a>)</span> in this sample book, which was built on top of R Markdown and <strong>knitr</strong> <span class="citation">(Xie <a href="#ref-xie2015" role="doc-biblioref">2015</a>)</span>.</p>
-<div id="email-replies-in-more-detail" class="section level3">
-<h3><span class="header-section-number">2.0.1</span> Email replies in more detail</h3>
-<p>I have just copied a few simple tutorials online incase you need a few resources.</p>
-<p><em>Im currently running an EFA</em> <strong>(sorry im not sure is this shorthand stands for?)</strong> <em>and I’m totally unsure of the cross-loading of some of the components!</em></p>
-<p>This is often the case when the relationships are weak or the power of the study is too low.</p>
-<p><em>I have attached output (it is the final rotated component matrix) as i have removed specific questions.</em></p>
-<p><em>I would like to move onto a multiple regression analysis or something to determine meaningful results from my questionnaire however I’m just super unsure of ways to move forward</em> <strong>I have started this in the report below but just need to sit down with some of your data I think</strong>.</p>
-<p><em>What are your thoughts on the cross loading?</em> <strong>Depends on the power of the data mostly I think</strong></p>
-<p>as a general, the components are almost fitting well with the theory i generated the survey around (the theory of planned behaviour)- into attitudes, norms and perceived behaviours but due to the multiple weighings, I’m unsure how to get a full understanding of seperation. <strong>This is a very hard question generally. Happy to discuss</strong></p>
+<div id="my-notes" class="section level2">
+<h2><span class="header-section-number">2.2</span> My notes</h2>
+<p>For example, you might like to think of a simple statistical regression with a single <code>y</code> and <code>x</code>as:</p>
+<p><span class="math display">\[ y_i = \beta_0 + \beta_1(x_i) + error_i \]</span>
+And if this was to be diagramatically represented it could be describled like so with the following descriptions:</p>
+<p><em>1:</em> We are proposing that <span class="math inline">\(y_i\)</span> is directly effected by <span class="math inline">\(x_i\)</span>.</p>
+<div id="htmlwidget-b92c25d143540124b6e0" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-b92c25d143540124b6e0">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  y; x\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  error; \"b0\" \n  \n  # several \"edge\" statements\n  y->x; y->\"b0\"\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="examples" class="section level3">
+<h3><span class="header-section-number">2.2.1</span> Examples</h3>
+<p>This info I think is interesting but haven’t investigated it much yet.</p>
 </div>
-<div id="overall" class="section level2">
-<h2><span class="header-section-number">2.1</span> Overall</h2>
-<p>Here I have put together a draft of some simple mixed models that can be looked at after the proposed objectives/hypothesis are laid out. It can sometimes be good to think of these sorts of problems as process diagrams as I have given below as an example</p>
-<div id="principal-component-analysis" class="section level3">
-<h3><span class="header-section-number">2.1.1</span> Principal component analysis</h3>
-<p>“In simple words, principal component analysis is a method of extracting important variables (in form of components) from a large set of variables available in a data set. It extracts low dimensional set of features from a high dimensional data set with a motive to capture as much information as possible. With fewer variables, visualization also becomes much more meaningful. PCA is more useful when dealing with 3 or higher dimensional data.” <a href="https://www.analyticsvidhya.com/blog/2016/03/practical-guide-principal-component-analysis-python/">ref: here</a>.</p>
-<div class="figure">
-<img src="img/analysis_pca.png" alt="" />
-<p class="caption">Screenshot1</p>
+<div id="math-insert" class="section level3">
+<h3><span class="header-section-number">2.2.2</span> Math insert</h3>
+<p>Here is an example of inserting math equations into <code>diagrammeR</code> using mathJax??</p>
+<pre><code>## 
+## &gt; library(DiagrammeR)
+## 
+## &gt; add_mathjax(grViz(&quot;\ndigraph G {\n  A [label=\&quot;$\\\\cos (2\\\\theta) = \\\\cos^2 \\\\theta - \\\\sin^2 \\\\theta$\&quot;];\n  A -&gt; B;\n}\n&quot;))</code></pre>
 </div>
-<p><strong>NOTE:</strong> It is always performed on a symmetric correlation or covariance matrix. This means the matrix should be numeric and have standardized data.</p>
-<p>And results often look like this by plotting the first and second dimentions like so…</p>
-<p><img src="img/pca_example.PNG" alt="showing the first two dimentions (PC1 and PC2)" />
-<strong>NOTE</strong> Any more than two diamentions are often hard to interperate and impossible if the power is low. To understand the number of diamentions needed the eigen values and vectors can be investigated.</p>
-</div>
-<div id="normalization" class="section level3">
-<h3><span class="header-section-number">2.1.2</span> Normalization</h3>
-<p>The principal component analysis should be fitted to a normalized version of original predictors/variables collected. This is because, the original data may have different scales.</p>
-<p><strong>For example:</strong> Imagine a data set with variables’ measuring units as gallons, kilometers, light years etc. It is definite that the scale of variances in these variables will be large.</p>
-<p>Performing PCA on un-normalized variables will lead to insanely large loadings for variables with high variance. In turn, this will lead to dependence of a principal component on the variable with high variance. This is undesirable.</p>
+<div id="kol-but-not-working" class="section level3">
+<h3><span class="header-section-number">2.2.3</span> Kol but not working</h3>
 </div>
 <div id="mixed-models" class="section level3">
-<h3><span class="header-section-number">2.1.3</span> Mixed models</h3>
+<h3><span class="header-section-number">2.2.4</span> Mixed models</h3>
 <p>Mixed models essentially start with sample mean differences between groups and then add additional complexity in favour of poor fitting models.</p>
 <p>You can write out models and variable relationships using statistical equations such as:</p>
 <p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i)\]</span>
@@ -393,22 +301,13 @@ where the variables can be collected either through direct questions or transfor
 </div>
 </div>
 </div>
-<h3>References</h3>
-<div id="refs" class="references">
-<div id="ref-xie2015">
-<p>Xie, Yihui. 2015. <em>Dynamic Documents with R and Knitr</em>. 2nd ed. Boca Raton, Florida: Chapman; Hall/CRC. <a href="http://yihui.name/knitr/">http://yihui.name/knitr/</a>.</p>
-</div>
-<div id="ref-R-bookdown">
-<p>Xie, Yihui. 2019. <em>Bookdown: Authoring Books and Technical Documents with R Markdown</em>. <a href="https://CRAN.R-project.org/package=bookdown">https://CRAN.R-project.org/package=bookdown</a>.</p>
-</div>
-</div>
             </section>
 
           </div>
         </div>
       </div>
 <a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="data.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="comps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -440,17 +339,18 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": null,
-"text": null
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/01-intro.Rmd",
+"text": "Edit"
 },
 "history": {
 "link": null,
 "text": null
 },
-"download": ["template-build.pdf", "template-build.epub"],
+"download": ["Simple_process_diagrams.pdf", "Simple_process_diagrams.epub", "Simple_process_diagrams.mobi", "Simple_process_diagrams.docx"],
 "toc": {
 "collapse": "subsection"
-}
+},
+"link-citations": true
 });
 });
 </script>

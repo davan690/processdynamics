@@ -2,7 +2,7 @@
 
 To build diagrams that accounts for the issues and nature of data collection as well as incorperating the life history constrains of the species being modelled.
 
-```{r global-options, message=FALSE, warning=FALSE, include=FALSE}
+```{r message=FALSE, warning=FALSE, include=FALSE}
 library("dplyr")
 library("knitr")
 library("docxtools")
@@ -56,7 +56,7 @@ knitr::opts_chunk$set(comment=NA,
 ## Table of Contents
 ```
 
-```{r toc, echo=FALSE} 
+```{r echo=FALSE} 
 toc.files <- c("index.Rmd")
 toc.gist(toc.files)
 ```
