@@ -1,12 +1,89 @@
 # NZ Mixed Forests {#mpd}
 
-$$log(N) = Control + Valley + Rats + Control:Rats$$
-$$r_{j,t} = \beta_{0,s,v,c} + \beta_{1,s,v,c} (S_{j,t})+ \beta_{2,s,v,c} (N_{j,t-1}) + \beta_{3,s,v,c} (R_{j,t-1})$$
-
-The first beech forest paper assumes and tests the following model.
-
 ## Draft ideas {.tabset}
 
+### v0
+
+```{r}
+library("DiagrammeR")
+
+grViz(" 
+  digraph CFA { graph [layout = circo]
+    # Multiple level nodes
+    
+    # # Terminal branch nodes
+    node [shape = ellipse, color = Drakgreen]
+    a [label = '@@1']
+    
+    node [shape = circle, color=CornflowerBlue]
+    b [label = '@@2']; 
+    c [label = '@@3'];
+    {rank = same; b; c}
+    
+    # Terminal branch nodes
+    node [shape = box, color = Crimson]
+    d [label = '@@4'];
+    
+    # Connect nodes with edges and labels
+    a -> b
+    a -> c
+    b -> d
+    c -> d
+    b->c
+    c->b
+  }
+
+[1]: 'Beech seed' 
+[2]: 'Rats'
+[3]: 'Mice'
+[4]: 'Stoats'
+")
+```
+
+### v1.1
+
+```{r}
+library("DiagrammeR")
+
+grViz(" 
+  digraph CFA { graph [layout = circo]
+    # Multiple level nodes
+    
+    # # Terminal branch nodes
+    node [shape = ellipse, color = Drakgreen]
+    a [label = '@@1']
+    
+    node [shape = circle, color=CornflowerBlue]
+    b [label = '@@2']; 
+    c [label = '@@3'];
+    {rank = same; b; c}
+    
+    # Terminal branch nodes
+    node [shape = box, color = Crimson]
+    d [label = '@@4'];
+    
+    # Connect nodes with edges and labels
+    a -> b [label = '@@5'];
+    a -> c [label = '@@6'];
+    b -> d [label = '@@7'];
+    c -> d [label = '@@8'];
+    b -> c [label = '@@9'];
+    c -> b [label = '@@10'];
+  }
+
+[1]: 'Possums' 
+[2]: 'Rats'
+[3]: 'Mice'
+[4]: 'Seed'
+[5]: 'Comp'
+[6]: 'Comp'
+[7]: 'rate'
+[8]: 'Comp'
+[9]: 'Predation'
+[10]: 'Comp'
+")
+```
+ 
 ### v1
 
 ```{r echo=FALSE}
@@ -14,7 +91,7 @@ grViz("
 digraph boxes_and_circles {
 
   # a 'graph' statement
-  graph [overlap = true, fontsize = 10]
+  graph [overlap = true, fontsize = 10 layout = circo]
 
   # several 'node' statements
   node [shape = box,
@@ -87,6 +164,112 @@ digraph boxes_and_circles {
   Control->Valley
   Valley->Rats 
 }
+")
+```
+
+## Modelling process drafts {.tabset}
+
+### v1
+
+```{r}
+library("DiagrammeR")
+
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [fontsize = 10]
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  Young; Juvielle; Adult
+
+  # several 'edge' statements
+  Young->Juvielle->Adult
+  Adult->Young
+  Juvielle-> Juvielle
+  Young->Young
+  Adult->Adult
+  }
+")
+```
+
+### v2
+
+```{r}
+library("DiagrammeR")
+
+grViz(" 
+  digraph CFA {
+    # Multiple level nodes
+    
+    # # Terminal branch nodes
+    node [shape = box, color = Crimson]
+    c [label = '@@3']
+    
+    node [shape = circle, color=CornflowerBlue]
+    b [label = '@@1']; 
+    a [label = '@@2'];
+    {rank = same; b; c}
+    
+    node [shape = circle, color=CornflowerBlue]
+    b [label = '@@1']; 
+    a [label = '@@2'];
+  {rank = same; b; c}
+    
+    # Connect nodes with edges and labels
+    a -> c [label = '@@4']; 
+    b -> c [label = '@@5']; 
+    c -> c [label = '@@6']; 
+  }
+
+[1]: 'Pop1' 
+[2]: 'Pop2'
+[3]: 'Sink'
+[4]: 'alpha_p1'
+[5]: 'alpha_p2'
+[6]: 'delta_sink1'
+
+")
+```
+
+### Genetic model
+
+This is classically how genetics is looked at but there is other dynemtions to population dynamics defined by a species life cycle. For possums:
+
+```{r}
+library("DiagrammeR")
+
+grViz(" 
+  digraph CFA {
+    # Multiple level nodes
+    
+    node [shape = circle, color=CornflowerBlue]
+    a [label = '@@1']
+    b [label = '@@2']; 
+    c [label = '@@3'];
+    {rank = same; a; b; c}
+    
+    # Terminal branch nodes
+    node [shape = box, color = Crimson]
+    d [label = '@@4'];
+    
+    # Connect nodes with edges and labels
+    c -> a [label = '@@5']; 
+    a -> b [label = '@@6'];
+    b -> d [label = '@@7'];
+    b -> c [label = '@@8'];
+  }
+
+[1]: 'Calves' 
+[2]: 'Junielles'
+[3]: 'Adults'
+[4]: 'Sink'
+[5]: 'Fa'
+[6]: 'Sc'
+[7]: 'Tj'
+[8]: 'Sj'
 ")
 ```
 

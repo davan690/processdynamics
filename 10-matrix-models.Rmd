@@ -1,0 +1,107 @@
+# Matrix population models {#matrixlifes}
+
+## Resources {.tabset}
+
+### Fish matrix model
+
+```{r echo=FALSE}
+library(DiagrammeR)
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  S1; S2; S3
+  
+  # several 'edge' statements
+  S1->S2; S2->S3; S3->S1
+  S3->S3
+  S2->S1
+}
+")
+```
+
+### v2
+
+```{r echo=FALSE}
+library(DiagrammeR)
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [fontsize = 10]
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  Young; Juvielle; Adult
+  
+  # several 'edge' statements
+  Young->Juvielle->Adult
+  Adult->Young
+  Juvielle-> Juvielle
+  Young->Young
+  Adult->Adult
+  }
+")
+```
+
+### v3
+
+```{r echo=FALSE}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Control; Valley; Rats; 
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  sex; age; 
+  
+  # several 'edge' statements
+  b1->sex; b2->age
+  Control->b1; Valley->b2; Rats->b3
+  Control->Valley
+  Valley->Rats 
+}
+")
+```
+
+## Draft processes {.tabset}
+
+### Mice
+
+```{r}
+
+```
+
+### Mice and Rats
+
+```{r}
+
+```
+
+### Mice, rats and possums
+
+```{r}
+
+```
+
+### Mice, rats, possums and stoats
+
+```{r}
+
+```
+
+

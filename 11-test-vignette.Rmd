@@ -1,0 +1,120 @@
+---
+title: "R Notebook"
+output:
+  html_document: default
+---
+
+```{r}
+#libraries
+library(htmltools)
+library(tidyverse)
+library(shiny)
+library(bookdown)
+library(knitr)
+library(DiagrammeR)
+```
+
+# test {#test}
+
+
+## explaining figure
+
+```{r}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  LandingPage
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 1] // sets as circles
+  thumbnail
+  
+    node [shape = circle,
+        fixedsize = true,
+        width = 2] // sets as circles
+  fullImage
+  
+  
+  node [shape = triangle,
+        fixedsize = true,
+        width = 0.9] // sets as circles
+  link
+  
+  # several 'edge' statements
+LandingPage->thumbnail->fullImage->link
+}
+")
+```
+
+
+
+## Thumbnails html code
+
+```{r}
+
+thumbnail <- function(title, img, href, caption = TRUE) {
+  div(class = "col-sm-4",
+      a(class = "thumbnail", title = title, href = href,
+        img(src = img),
+        div(class = if (caption) "caption",
+            if (caption) title)
+      )
+  )
+}
+
+
+thumbnail("Apple", "figs/apple.png",
+          "https://en.wikipedia.org/wiki/Apple")
+thumbnail("Grape", "figs/grape.png",
+          "https://en.wikipedia.org/wiki/Grape")
+thumbnail("Peach", "figs/peach.png",
+          "https://en.wikipedia.org/wiki/Peach")
+```
+
+
+## socials
+
+```{r}
+grViz("
+digraph boxes_and_circles {
+
+  # a 'graph' statement
+  graph [overlap = true, fontsize = 10]
+
+  # several 'node' statements
+  node [shape = box,
+        fontname = Helvetica]
+  Twitter; Facebook; Instagram; ResearchGate: Github
+
+  node [shape = circle,
+        fixedsize = true,
+        width = 1] // sets as circles
+  business; manager; photos; blogs; content
+
+# several 'edge' statements
+Twitter-> manager->photos->blogs->content
+Instagram->photos; Instagram->content;Instagram->manager
+Facebook->business; ResearchGate->content
+Github->content
+content->manager
+business->manager
+manager->content
+manager->business->manager
+}
+")
+```
+
+
+## Include a list of images??
+
+```{r, echo = TRUE, out.width="30%"}
+myimages<-list.files("images/", pattern = ".png", full.names = TRUE)
+include_graphics(myimages)
+```

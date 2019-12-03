@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Chapter 12 Selecting the Last Node or Edge in an NDF or EDF | Diagrams</title>
+  <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
+  <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Chapter 12 Selecting the Last Node or Edge in an NDF or EDF | Diagrams" />
+  <meta property="og:type" content="book" />
+  
+  
+  <meta property="og:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Chapter 12 Selecting the Last Node or Edge in an NDF or EDF | Diagrams" />
+  
+  <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
+  
+
+<meta name="author" content="Anthony Davidson" />
+
+
+<meta name="date" content="2019-10-17" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="creating-an-edge-selection.html"/>
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<script src="libs/htmlwidgets-1.5.1/htmlwidgets.js"></script>
+<script src="libs/viz-0.3/viz.js"></script>
+<link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
+<script src="libs/grViz-binding-1.0.1/grViz.js"></script>
+
+
+<style type="text/css">
+code.sourceCode > span { display: inline-block; line-height: 1.25; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+<link rel="stylesheet" href="style.css" type="text/css" />
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">All sorts of flow diagrams</a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> Examples</a></li>
+<li class="chapter" data-level="2" data-path="intro.html"><a href="intro.html"><i class="fa fa-check"></i><b>2</b> Introduction</a><ul>
+<li class="chapter" data-level="2.1" data-path="intro.html"><a href="intro.html#resources"><i class="fa fa-check"></i><b>2.1</b> Resources</a></li>
+<li class="chapter" data-level="2.2" data-path="intro.html"><a href="intro.html#my-notes"><i class="fa fa-check"></i><b>2.2</b> My notes</a><ul>
+<li class="chapter" data-level="2.2.1" data-path="intro.html"><a href="intro.html#examples"><i class="fa fa-check"></i><b>2.2.1</b> Examples</a></li>
+<li class="chapter" data-level="2.2.2" data-path="intro.html"><a href="intro.html#math-insert"><i class="fa fa-check"></i><b>2.2.2</b> Math insert</a></li>
+<li class="chapter" data-level="2.2.3" data-path="intro.html"><a href="intro.html#kol-but-not-working"><i class="fa fa-check"></i><b>2.2.3</b> Kol but not working</a></li>
+<li class="chapter" data-level="2.2.4" data-path="intro.html"><a href="intro.html#mixed-models"><i class="fa fa-check"></i><b>2.2.4</b> Mixed models</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="comps.html"><a href="comps.html"><i class="fa fa-check"></i><b>3</b> Software and Hardware</a><ul>
+<li class="chapter" data-level="3.1" data-path="comps.html"><a href="comps.html#software"><i class="fa fa-check"></i><b>3.1</b> Software</a><ul>
+<li class="chapter" data-level="3.1.1" data-path="comps.html"><a href="comps.html#rstudio"><i class="fa fa-check"></i><b>3.1.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.1.2" data-path="comps.html"><a href="comps.html#vs-code"><i class="fa fa-check"></i><b>3.1.2</b> ‘vs-code’</a></li>
+<li class="chapter" data-level="3.1.3" data-path="comps.html"><a href="comps.html#r"><i class="fa fa-check"></i><b>3.1.3</b> R</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="comps.html"><a href="comps.html#computer-processes"><i class="fa fa-check"></i><b>3.2</b> Computer processes</a><ul>
+<li class="chapter" data-level="3.2.1" data-path="comps.html"><a href="comps.html#rstudio-1"><i class="fa fa-check"></i><b>3.2.1</b> RStudio</a></li>
+<li class="chapter" data-level="3.2.2" data-path="comps.html"><a href="comps.html#v3"><i class="fa fa-check"></i><b>3.2.2</b> v3</a></li>
+<li class="chapter" data-level="3.2.3" data-path="comps.html"><a href="comps.html#v4"><i class="fa fa-check"></i><b>3.2.3</b> v4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="sppPro.html"><a href="sppPro.html"><i class="fa fa-check"></i><b>4</b> Interacting Species</a><ul>
+<li class="chapter" data-level="4.1" data-path="sppPro.html"><a href="sppPro.html#three-species-models"><i class="fa fa-check"></i><b>4.1</b> Three species models</a><ul>
+<li class="chapter" data-level="4.1.1" data-path="sppPro.html"><a href="sppPro.html#v1"><i class="fa fa-check"></i><b>4.1.1</b> v1</a></li>
+<li class="chapter" data-level="4.1.2" data-path="sppPro.html"><a href="sppPro.html#v2"><i class="fa fa-check"></i><b>4.1.2</b> v2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="likscale.html"><a href="likscale.html"><i class="fa fa-check"></i><b>5</b> Likert Scales</a><ul>
+<li class="chapter" data-level="5.1" data-path="likscale.html"><a href="likscale.html#the-problem"><i class="fa fa-check"></i><b>5.1</b> The problem</a></li>
+<li class="chapter" data-level="5.2" data-path="likscale.html"><a href="likscale.html#method"><i class="fa fa-check"></i><b>5.2</b> Method</a></li>
+<li class="chapter" data-level="5.3" data-path="likscale.html"><a href="likscale.html#flow-diagram"><i class="fa fa-check"></i><b>5.3</b> Flow diagram</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="likscale.html"><a href="likscale.html#v1-1"><i class="fa fa-check"></i><b>5.3.1</b> v1</a></li>
+<li class="chapter" data-level="5.3.2" data-path="likscale.html"><a href="likscale.html#v2-1"><i class="fa fa-check"></i><b>5.3.2</b> v2</a></li>
+<li class="chapter" data-level="5.3.3" data-path="likscale.html"><a href="likscale.html#v3-1"><i class="fa fa-check"></i><b>5.3.3</b> v3</a></li>
+<li class="chapter" data-level="5.3.4" data-path="likscale.html"><a href="likscale.html#v4-1"><i class="fa fa-check"></i><b>5.3.4</b> v4</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="6" data-path="mixed.html"><a href="mixed.html"><i class="fa fa-check"></i><b>6</b> Mixed regression models</a><ul>
+<li class="chapter" data-level="6.1" data-path="mixed.html"><a href="mixed.html#models"><i class="fa fa-check"></i><b>6.1</b> Models</a><ul>
+<li class="chapter" data-level="6.1.1" data-path="mixed.html"><a href="mixed.html#constant-only"><i class="fa fa-check"></i><b>6.1.1</b> Constant only</a></li>
+<li class="chapter" data-level="6.1.2" data-path="mixed.html"><a href="mixed.html#single-predictor"><i class="fa fa-check"></i><b>6.1.2</b> Single predictor</a></li>
+<li class="chapter" data-level="6.1.3" data-path="mixed.html"><a href="mixed.html#multi-level-v1"><i class="fa fa-check"></i><b>6.1.3</b> Multi-level v1</a></li>
+<li class="chapter" data-level="6.1.4" data-path="mixed.html"><a href="mixed.html#multi-level-v2"><i class="fa fa-check"></i><b>6.1.4</b> Multi-level v2</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="7" data-path="nzbs.html"><a href="nzbs.html"><i class="fa fa-check"></i><b>7</b> NZ Beech Forests</a><ul>
+<li class="chapter" data-level="7.1" data-path="nzbs.html"><a href="nzbs.html#draft-ideas"><i class="fa fa-check"></i><b>7.1</b> Draft ideas</a><ul>
+<li class="chapter" data-level="7.1.1" data-path="nzbs.html"><a href="nzbs.html#v1-2"><i class="fa fa-check"></i><b>7.1.1</b> v1</a></li>
+<li class="chapter" data-level="7.1.2" data-path="nzbs.html"><a href="nzbs.html#v2-2"><i class="fa fa-check"></i><b>7.1.2</b> v2</a></li>
+<li class="chapter" data-level="7.1.3" data-path="nzbs.html"><a href="nzbs.html#v3-2"><i class="fa fa-check"></i><b>7.1.3</b> v3</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="8" data-path="mpd.html"><a href="mpd.html"><i class="fa fa-check"></i><b>8</b> NZ Mixed Forests</a><ul>
+<li class="chapter" data-level="8.1" data-path="mpd.html"><a href="mpd.html#draft-ideas-1"><i class="fa fa-check"></i><b>8.1</b> Draft ideas</a><ul>
+<li class="chapter" data-level="8.1.1" data-path="mpd.html"><a href="mpd.html#v1-3"><i class="fa fa-check"></i><b>8.1.1</b> v1</a></li>
+<li class="chapter" data-level="8.1.2" data-path="mpd.html"><a href="mpd.html#v2-3"><i class="fa fa-check"></i><b>8.1.2</b> v2</a></li>
+<li class="chapter" data-level="8.1.3" data-path="mpd.html"><a href="mpd.html#v3-3"><i class="fa fa-check"></i><b>8.1.3</b> v3</a></li>
+</ul></li>
+<li class="chapter" data-level="8.2" data-path="mpd.html"><a href="mpd.html#draft-processes"><i class="fa fa-check"></i><b>8.2</b> Draft processes</a><ul>
+<li class="chapter" data-level="8.2.1" data-path="mpd.html"><a href="mpd.html#mice"><i class="fa fa-check"></i><b>8.2.1</b> Mice</a></li>
+<li class="chapter" data-level="8.2.2" data-path="mpd.html"><a href="mpd.html#mice-and-rats"><i class="fa fa-check"></i><b>8.2.2</b> Mice and Rats</a></li>
+<li class="chapter" data-level="8.2.3" data-path="mpd.html"><a href="mpd.html#mice-rats-and-possums"><i class="fa fa-check"></i><b>8.2.3</b> Mice, rats and possums</a></li>
+<li class="chapter" data-level="8.2.4" data-path="mpd.html"><a href="mpd.html#mice-rats-possums-and-stoats"><i class="fa fa-check"></i><b>8.2.4</b> Mice, rats, possums and stoats</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="9" data-path="matrixlifes.html"><a href="matrixlifes.html"><i class="fa fa-check"></i><b>9</b> Matrix population models</a><ul>
+<li class="chapter" data-level="9.1" data-path="matrixlifes.html"><a href="matrixlifes.html#resources-1"><i class="fa fa-check"></i><b>9.1</b> Resources</a><ul>
+<li class="chapter" data-level="9.1.1" data-path="matrixlifes.html"><a href="matrixlifes.html#fish-matrix-model"><i class="fa fa-check"></i><b>9.1.1</b> Fish matrix model</a></li>
+<li class="chapter" data-level="9.1.2" data-path="matrixlifes.html"><a href="matrixlifes.html#v2-4"><i class="fa fa-check"></i><b>9.1.2</b> v2</a></li>
+<li class="chapter" data-level="9.1.3" data-path="matrixlifes.html"><a href="matrixlifes.html#v3-4"><i class="fa fa-check"></i><b>9.1.3</b> v3</a></li>
+</ul></li>
+<li class="chapter" data-level="9.2" data-path="matrixlifes.html"><a href="matrixlifes.html#draft-processes-1"><i class="fa fa-check"></i><b>9.2</b> Draft processes</a><ul>
+<li class="chapter" data-level="9.2.1" data-path="matrixlifes.html"><a href="matrixlifes.html#mice-1"><i class="fa fa-check"></i><b>9.2.1</b> Mice</a></li>
+<li class="chapter" data-level="9.2.2" data-path="matrixlifes.html"><a href="matrixlifes.html#mice-and-rats-1"><i class="fa fa-check"></i><b>9.2.2</b> Mice and Rats</a></li>
+<li class="chapter" data-level="9.2.3" data-path="matrixlifes.html"><a href="matrixlifes.html#mice-rats-and-possums-1"><i class="fa fa-check"></i><b>9.2.3</b> Mice, rats and possums</a></li>
+<li class="chapter" data-level="9.2.4" data-path="matrixlifes.html"><a href="matrixlifes.html#mice-rats-possums-and-stoats-1"><i class="fa fa-check"></i><b>9.2.4</b> Mice, rats, possums and stoats</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="10" data-path="creating-a-node-selection.html"><a href="creating-a-node-selection.html"><i class="fa fa-check"></i><b>10</b> Creating a Node Selection</a></li>
+<li class="chapter" data-level="11" data-path="creating-an-edge-selection.html"><a href="creating-an-edge-selection.html"><i class="fa fa-check"></i><b>11</b> Creating an Edge Selection</a></li>
+<li class="chapter" data-level="12" data-path="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html"><i class="fa fa-check"></i><b>12</b> Selecting the Last Node or Edge in an NDF or EDF</a></li>
+<li class="divider"></li>
+<li><a href="https://github.com/davan690/processdynamics" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Diagrams</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="selecting-the-last-node-or-edge-in-an-ndf-or-edf" class="section level1">
+<h1><span class="header-section-number">Chapter 12</span> Selecting the Last Node or Edge in an NDF or EDF</h1>
+<p>You can select the last node or edge from the graph’s internal node data frame (NDF) or internal edge data frame (EDF), respectively. Usually, this will be the last node or edge created since new nodes or edges are added to the bottom of the data frame and there is no shuffling of these positions. Immediately after creating a single node or edge, calling either the <code>select_last_node()</code> or the <code>select_last_edge()</code> functions will result in a selection of the last node or edge created.</p>
+<p>For both functions, <code>graph</code> is the only argument. If we provide a graph object to <code>select_last_nodes_created()</code> we will get an active selection of nodes (the last nodes that were added to the graph object). Likewise, the <code>select_last_edges_created()</code> will create an active selection of edges, whichever edges were last defined in a function call.</p>
+<p>To begin, we’ll use the same graph as before but we’ll clear any active selection using the <code>clear_selection()</code> function. To ensure that there is no active selection of nodes or edges, we can use the <code>get_selection()</code> function. A value of <code>NA</code> means that there is neither a selection of nodes nor edges.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb12-1"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-1"></a><span class="co"># Clear the graph&#39;s selection</span></span>
+<span id="cb12-2"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-2"></a>graph &lt;-</span>
+<span id="cb12-3"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-3"></a><span class="st">  </span>graph <span class="op">%&gt;%</span></span>
+<span id="cb12-4"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-4"></a><span class="st">  </span><span class="kw">clear_selection</span>()</span>
+<span id="cb12-5"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-5"></a><span class="co">#&gt; `clear_selection()` INFO: cleared an existing selection of 2 edges</span></span>
+<span id="cb12-6"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-6"></a></span>
+<span id="cb12-7"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-7"></a><span class="co"># Check whether there is still</span></span>
+<span id="cb12-8"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-8"></a><span class="co"># a selection present</span></span>
+<span id="cb12-9"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-9"></a>graph <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">get_selection</span>()</span>
+<span id="cb12-10"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-10"></a><span class="co">#&gt; `get_selection()` INFO: there is no active selection of nodes or edges</span></span>
+<span id="cb12-11"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb12-11"></a><span class="co">#&gt; [1] NA</span></span></code></pre></div>
+<p>If we use <code>select_last_nodes_created</code> on this graph, we find that the active selection of nodes contains all the nodes in the graph, as they were all produced in the <code>create_graph()</code> function (and no nodes were added in subsequent operations).</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb13-1"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-1"></a><span class="co"># Select the last node in the graph&#39;s NDF and confirm</span></span>
+<span id="cb13-2"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-2"></a><span class="co"># that the selection was made</span></span>
+<span id="cb13-3"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-3"></a>graph <span class="op">%&gt;%</span></span>
+<span id="cb13-4"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-4"></a><span class="st">  </span><span class="kw">select_last_nodes_created</span>() <span class="op">%&gt;%</span></span>
+<span id="cb13-5"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-5"></a><span class="st">  </span><span class="kw">get_node_df_ws</span>()</span>
+<span id="cb13-6"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-6"></a><span class="co">#&gt;   id type label</span></span>
+<span id="cb13-7"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-7"></a><span class="co">#&gt; 1  1 &lt;NA&gt;  &lt;NA&gt;</span></span>
+<span id="cb13-8"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-8"></a><span class="co">#&gt; 2  2 &lt;NA&gt;  &lt;NA&gt;</span></span>
+<span id="cb13-9"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-9"></a><span class="co">#&gt; 3  3 &lt;NA&gt;  &lt;NA&gt;</span></span>
+<span id="cb13-10"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb13-10"></a><span class="co">#&gt; 4  4 &lt;NA&gt;  &lt;NA&gt;</span></span></code></pre></div>
+<p>The same goes for the edges. Using <code>select_last_edges_created()</code> will make a selection of edges that includes all edges in the graph.</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb14-1"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-1"></a><span class="co"># Select the last edge in the graph&#39;s EDF and confirm</span></span>
+<span id="cb14-2"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-2"></a><span class="co"># that the selection was made</span></span>
+<span id="cb14-3"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-3"></a>graph <span class="op">%&gt;%</span></span>
+<span id="cb14-4"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-4"></a><span class="st">  </span><span class="kw">select_last_edges_created</span>() <span class="op">%&gt;%</span></span>
+<span id="cb14-5"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-5"></a><span class="st">  </span><span class="kw">get_edge_df_ws</span>()</span>
+<span id="cb14-6"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-6"></a><span class="co">#&gt;   id from to  rel data</span></span>
+<span id="cb14-7"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-7"></a><span class="co">#&gt; 1  1    1  2 &lt;NA&gt;  8.6</span></span>
+<span id="cb14-8"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-8"></a><span class="co">#&gt; 2  2    2  3 &lt;NA&gt;  2.8</span></span>
+<span id="cb14-9"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-9"></a><span class="co">#&gt; 3  3    3  4 &lt;NA&gt;  6.3</span></span>
+<span id="cb14-10"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb14-10"></a><span class="co">#&gt; 4  4    4  1 &lt;NA&gt;  4.5</span></span></code></pre></div>
+<p>Where these functions become useful is during the building up of a graph in multiple steps. In this next example, we will start with an empty graph (using <code>create_graph()</code> by itself) then add a single node with <code>add_node()</code>, and then select that very node with <code>select_last_nodes_created()</code>. This selection-in-a-pipeline approach makes it easy to set node attributes because we can use the <code>set_node_attrs_ws()</code> function. In this example, we’re adding a new <code>timestamp</code> attribute and assigning a value (the system time). Because the selection is persistent, we can set more attributes in further calls to <code>set_node_attrs_ws()</code>. When we are done with this node selection, we call the <code>clear_selection()</code> function and return to a clean slate of no active selection present (it removes any node or edge selection from the graph object). The example proceeds to create another new node and adding attributes, and then a new edge and edge attributes (with <code>set_edge_attrs_ws()</code>). This is all facilitated with the <code>select_last_nodes_created()</code> and <code>select_last_edges_created()</code> functions.</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb15-1"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-1"></a><span class="co"># Create a graph, node-by-node and</span></span>
+<span id="cb15-2"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-2"></a><span class="co"># edge-by-edge and add attributes</span></span>
+<span id="cb15-3"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-3"></a>graph_<span class="dv">2</span> &lt;-</span>
+<span id="cb15-4"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-4"></a><span class="st">  </span><span class="kw">create_graph</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-5"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-5"></a><span class="st">  </span><span class="kw">add_node</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-6"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-6"></a><span class="st">  </span><span class="kw">select_last_nodes_created</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-7"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-7"></a><span class="st">  </span><span class="kw">set_node_attrs_ws</span>(</span>
+<span id="cb15-8"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-8"></a>    <span class="dt">node_attr =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb15-9"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-9"></a>    <span class="dt">value =</span> <span class="kw">as.character</span>(<span class="kw">Sys.time</span>())</span>
+<span id="cb15-10"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-10"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb15-11"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-11"></a><span class="st">  </span><span class="kw">set_node_attrs_ws</span>(</span>
+<span id="cb15-12"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-12"></a>    <span class="dt">node_attr =</span> <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb15-13"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-13"></a>    <span class="dt">value =</span> <span class="st">&quot;A&quot;</span></span>
+<span id="cb15-14"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-14"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb15-15"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-15"></a><span class="st">  </span><span class="kw">clear_selection</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-16"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-16"></a><span class="st">  </span><span class="kw">add_node</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-17"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-17"></a><span class="st">  </span><span class="kw">select_last_nodes_created</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-18"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-18"></a><span class="st">  </span><span class="kw">set_node_attrs_ws</span>(</span>
+<span id="cb15-19"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-19"></a>    <span class="dt">node_attr =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb15-20"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-20"></a>    <span class="dt">value =</span> <span class="kw">as.character</span>(<span class="kw">Sys.time</span>())</span>
+<span id="cb15-21"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-21"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb15-22"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-22"></a><span class="st">  </span><span class="kw">set_node_attrs_ws</span>(</span>
+<span id="cb15-23"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-23"></a>    <span class="dt">node_attr =</span> <span class="st">&quot;type&quot;</span>,</span>
+<span id="cb15-24"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-24"></a>    <span class="dt">value =</span> <span class="st">&quot;B&quot;</span></span>
+<span id="cb15-25"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-25"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb15-26"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-26"></a><span class="st">  </span><span class="kw">add_edge</span>(</span>
+<span id="cb15-27"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-27"></a>    <span class="dt">from =</span> <span class="dv">1</span>,</span>
+<span id="cb15-28"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-28"></a>    <span class="dt">to =</span> <span class="dv">2</span>,</span>
+<span id="cb15-29"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-29"></a>    <span class="dt">rel =</span> <span class="st">&quot;AB&quot;</span></span>
+<span id="cb15-30"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-30"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb15-31"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-31"></a><span class="st">  </span><span class="kw">select_last_edges_created</span>() <span class="op">%&gt;%</span></span>
+<span id="cb15-32"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-32"></a><span class="st">  </span><span class="kw">set_edge_attrs_ws</span>(</span>
+<span id="cb15-33"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-33"></a>    <span class="dt">edge_attr =</span> <span class="st">&quot;timestamp&quot;</span>,</span>
+<span id="cb15-34"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-34"></a>    <span class="dt">value =</span> <span class="kw">as.character</span>(<span class="kw">Sys.time</span>())</span>
+<span id="cb15-35"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-35"></a>  ) <span class="op">%&gt;%</span></span>
+<span id="cb15-36"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-36"></a><span class="st">  </span><span class="kw">clear_selection</span>()</span>
+<span id="cb15-37"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-37"></a><span class="co">#&gt; `clear_selection()` INFO: cleared an existing selection of 1 node</span></span>
+<span id="cb15-38"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-38"></a><span class="co">#&gt; `clear_selection()` INFO: cleared an existing selection of 1 edge</span></span>
+<span id="cb15-39"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-39"></a></span>
+<span id="cb15-40"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-40"></a><span class="co"># View the new graph</span></span>
+<span id="cb15-41"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb15-41"></a>graph_<span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">render_graph</span>()</span></code></pre></div>
+<div id="htmlwidget-14cbecb7d63d0eb73bf9" style="width:672px;height:480px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-14cbecb7d63d0eb73bf9">{"x":{"diagram":"digraph {\n\ngraph [layout = \"neato\",\n       outputorder = \"edgesfirst\",\n       bgcolor = \"white\"]\n\nnode [fontname = \"Helvetica\",\n      fontsize = \"10\",\n      shape = \"circle\",\n      fixedsize = \"true\",\n      width = \"0.5\",\n      style = \"filled\",\n      fillcolor = \"aliceblue\",\n      color = \"gray70\",\n      fontcolor = \"gray50\"]\n\nedge [fontname = \"Helvetica\",\n     fontsize = \"8\",\n     len = \"1.5\",\n     color = \"gray80\",\n     arrowsize = \"0.5\"]\n\n  \"1\" [fillcolor = \"#F0F8FF\", fontcolor = \"#000000\"] \n  \"2\" [fillcolor = \"#F0F8FF\", fontcolor = \"#000000\"] \n  \"1\"->\"2\" \n}","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<p>The graph shows two nodes connected together. Nothing more, nothing less. The more interesting views of the data are of the node and edge data frames, which now have several attributes set. Let’s have a look at the graph’s internal node data frame…</p>
+<div class="sourceCode" id="cb16"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb16-1"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb16-1"></a><span class="co"># Inspect the new graph&#39;s NDF</span></span>
+<span id="cb16-2"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb16-2"></a>graph_<span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">get_node_df</span>()</span>
+<span id="cb16-3"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb16-3"></a><span class="co">#&gt;   id type label           timestamp</span></span>
+<span id="cb16-4"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb16-4"></a><span class="co">#&gt; 1  1    A  &lt;NA&gt; 2019-10-17 21:44:40</span></span>
+<span id="cb16-5"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb16-5"></a><span class="co">#&gt; 2  2    B  &lt;NA&gt; 2019-10-17 21:44:40</span></span></code></pre></div>
+<p>…and let’s inspect the graph’s internal edge data frame.</p>
+<div class="sourceCode" id="cb17"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb17-1"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb17-1"></a><span class="co"># Inspect the new graph&#39;s EDF</span></span>
+<span id="cb17-2"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb17-2"></a>graph_<span class="dv">2</span> <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">get_edge_df</span>()</span>
+<span id="cb17-3"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb17-3"></a><span class="co">#&gt;   id from to rel           timestamp</span></span>
+<span id="cb17-4"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html#cb17-4"></a><span class="co">#&gt; 1  1    1  2  AB 2019-10-17 21:44:40</span></span></code></pre></div>
+<p>As can be seen, immediately invoking <code>select_last_nodes_created()</code> or <code>select_last_edges_created()</code> after addition of new nodes or edges can be useful for working with the newly made nodes/edges. Many functions ending with <code>_ws()</code> operate specifically on selections of nodes or edges.</p>
+
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="creating-an-edge-selection.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/11-test-vignette.Rmd",
+"text": "Edit"
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["Simple_process_diagrams.pdf", "Simple_process_diagrams.epub", "Simple_process_diagrams.mobi", "Simple_process_diagrams.docx"],
+"toc": {
+"collapse": "subsection"
+},
+"link-citations": true
+});
+});
+</script>
+
+</body>
+
+</html>

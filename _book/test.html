@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introduction | Diagrams</title>
+  <title>Chapter 10 test | Diagrams</title>
   <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introduction | Diagrams" />
+  <meta property="og:title" content="Chapter 10 test | Diagrams" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introduction | Diagrams" />
+  <meta name="twitter:title" content="Chapter 10 test | Diagrams" />
   
   <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
@@ -31,8 +31,8 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="comps.html"/>
+<link rel="prev" href="matrixlifes.html"/>
+
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -248,76 +248,42 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
-<p>Conceptial diagrams are vital for understanding processes and developing incremetal science, however, there seems to be very few packages or other software that aligns with the literature in how and when these diagrams should be developed.</p>
-<p>This book uses <code>R</code> and the core packages <a href="https://cran.r-project.org/web/packages/DiagrammeR/index.html"><code>diagrammeR</code></a>.</p>
-<p>There is a great resource written by the author <a href="https://rich-iannone.github.io/DiagrammeR/index.html">here</a> but I am still working out overall how the package in R works.
-- A good explaination of the features <a href="https://rich-iannone.github.io/DiagrammeR/index.html#features">here</a></p>
-<div id="resources" class="section level2">
-<h2><span class="header-section-number">2.1</span> Resources</h2>
-<p>The general concept of the package I am using is very simple but the code looks intemidating:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1"></a><span class="kw">grViz</span>(<span class="st">&quot;</span></span>
-<span id="cb1-2"><a href="intro.html#cb1-2"></a><span class="st">digraph boxes_and_circles {</span></span>
-<span id="cb1-3"><a href="intro.html#cb1-3"></a></span>
-<span id="cb1-4"><a href="intro.html#cb1-4"></a><span class="st">  # a &#39;graph&#39; statement</span></span>
-<span id="cb1-5"><a href="intro.html#cb1-5"></a><span class="st">  graph [overlap = true, fontsize = 10]</span></span>
-<span id="cb1-6"><a href="intro.html#cb1-6"></a></span>
-<span id="cb1-7"><a href="intro.html#cb1-7"></a><span class="st">  # several &#39;node&#39; statements</span></span>
-<span id="cb1-8"><a href="intro.html#cb1-8"></a><span class="st">  node [shape = box,</span></span>
-<span id="cb1-9"><a href="intro.html#cb1-9"></a><span class="st">        fontname = Helvetica]</span></span>
-<span id="cb1-10"><a href="intro.html#cb1-10"></a><span class="st">  &#39;box&#39;; &#39;shape&#39;</span></span>
-<span id="cb1-11"><a href="intro.html#cb1-11"></a></span>
-<span id="cb1-12"><a href="intro.html#cb1-12"></a><span class="st">  node [shape = circle,</span></span>
-<span id="cb1-13"><a href="intro.html#cb1-13"></a><span class="st">        fixedsize = true,</span></span>
-<span id="cb1-14"><a href="intro.html#cb1-14"></a><span class="st">        width = 0.9] // sets as circles</span></span>
-<span id="cb1-15"><a href="intro.html#cb1-15"></a><span class="st">  &#39;shape2&#39;; &#39;circles&#39;</span></span>
-<span id="cb1-16"><a href="intro.html#cb1-16"></a></span>
-<span id="cb1-17"><a href="intro.html#cb1-17"></a><span class="st">  node [shape = circle,</span></span>
-<span id="cb1-18"><a href="intro.html#cb1-18"></a><span class="st">        fixedsize = true,</span></span>
-<span id="cb1-19"><a href="intro.html#cb1-19"></a><span class="st">        width = 0.9] // sets as circles</span></span>
-<span id="cb1-20"><a href="intro.html#cb1-20"></a><span class="st">  &#39;join&#39;; &#39;arrow&#39;</span></span>
-<span id="cb1-21"><a href="intro.html#cb1-21"></a><span class="st">  </span></span>
-<span id="cb1-22"><a href="intro.html#cb1-22"></a><span class="st">  # several &#39;edge&#39; statements</span></span>
-<span id="cb1-23"><a href="intro.html#cb1-23"></a><span class="st">  join-&gt;arrow</span></span>
-<span id="cb1-24"><a href="intro.html#cb1-24"></a><span class="st">}</span></span>
-<span id="cb1-25"><a href="intro.html#cb1-25"></a><span class="st">&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-4df462d606f177af0aa7" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4df462d606f177af0aa7">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  \"box\"; \"shape\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  \"shape2\"; \"circles\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  \"join\"; \"arrow\"\n  \n  # several \"edge\" statements\n  join->arrow\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
+<div id="test" class="section level1">
+<h1><span class="header-section-number">Chapter 10</span> test</h1>
+<div id="explaining-figure" class="section level2">
+<h2><span class="header-section-number">10.1</span> explaining figure</h2>
+<div id="htmlwidget-f45d77bcdfd577621a3d" style="width:960px;height:576px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-f45d77bcdfd577621a3d">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  LandingPage\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 1] // sets as circles\n  thumbnail\n  \n    node [shape = circle,\n        fixedsize = true,\n        width = 2] // sets as circles\n  fullImage\n  \n  \n  node [shape = triangle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  link\n  \n  # several \"edge\" statements\nLandingPage->thumbnail->fullImage->link\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="my-notes" class="section level2">
-<h2><span class="header-section-number">2.2</span> My notes</h2>
-<p>For example, you might like to think of a simple statistical regression with a single <code>y</code> and <code>x</code>as:</p>
-<p><span class="math display">\[ y_i = \beta_0 + \beta_1(x_i) + error_i \]</span>
-And if this was to be diagramatically represented it could be describled like so with the following descriptions:</p>
-<p><em>1:</em> We are proposing that <span class="math inline">\(y_i\)</span> is directly effected by <span class="math inline">\(x_i\)</span>.</p>
-<div id="htmlwidget-fd986a6b2aab61f89d89" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fd986a6b2aab61f89d89">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  y; x\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  error; \"b0\" \n  \n  # several \"edge\" statements\n  y->x; y->\"b0\"\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<div id="examples" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Examples</h3>
-<p>This info I think is interesting but haven’t investigated it much yet.</p>
+<div id="thumbnails-html-code" class="section level2">
+<h2><span class="header-section-number">10.2</span> Thumbnails html code</h2>
+<p><div class="col-sm-4">
+<a class="thumbnail" title="Apple" href="https://en.wikipedia.org/wiki/Apple">
+<img src="figs/apple.png"/>
+<div class="caption">Apple</div>
+</a>
+</div><div class="col-sm-4">
+<a class="thumbnail" title="Grape" href="https://en.wikipedia.org/wiki/Grape">
+<img src="figs/grape.png"/>
+<div class="caption">Grape</div>
+</a>
+</div><div class="col-sm-4">
+<a class="thumbnail" title="Peach" href="https://en.wikipedia.org/wiki/Peach">
+<img src="figs/peach.png"/>
+<div class="caption">Peach</div>
+</a>
+</div></p>
 </div>
-<div id="math-insert" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Math insert</h3>
-<p>Here is an example of inserting math equations into <code>diagrammeR</code> using mathJax??</p>
-<pre><code>## 
-## &gt; library(DiagrammeR)
-## 
-## &gt; add_mathjax(grViz(&quot;\ndigraph G {\n  A [label=\&quot;$\\\\cos (2\\\\theta) = \\\\cos^2 \\\\theta - \\\\sin^2 \\\\theta$\&quot;];\n  A -&gt; B;\n}\n&quot;))</code></pre>
+<div id="socials" class="section level2">
+<h2><span class="header-section-number">10.3</span> socials</h2>
+<div id="htmlwidget-e805c30b20ac9c8e2855" style="width:960px;height:576px;" class="grViz html-widget"></div>
+<script type="application/json" data-for="htmlwidget-e805c30b20ac9c8e2855">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  Twitter; Facebook; Instagram; ResearchGate: Github\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 1] // sets as circles\n  business; manager; photos; blogs; content\n\n# several \"edge\" statements\nTwitter-> manager->photos->blogs->content\nInstagram->photos; Instagram->content;Instagram->manager\nFacebook->business; ResearchGate->content\nGithub->content\ncontent->manager\nbusiness->manager\nmanager->content\nmanager->business->manager\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
 </div>
-<div id="kol-but-not-working" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Kol but not working</h3>
-</div>
-<div id="mixed-models" class="section level3">
-<h3><span class="header-section-number">2.2.4</span> Mixed models</h3>
-<p>Mixed models essentially start with sample mean differences between groups and then add additional complexity in favour of poor fitting models.</p>
-<p>You can write out models and variable relationships using statistical equations such as:</p>
-<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i)\]</span>
-where the variables can be collected either through direct questions or transformed data from the orginal questions. What does it look like in a diagram explaining how the variables are proposed to be similar? Example below:</p>
-<p>For example you might think that generally individuals that …</p>
-<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i \]</span></p>
+<div id="include-a-list-of-images" class="section level2">
+<h2><span class="header-section-number">10.4</span> Include a list of images??</h2>
+<div class="sourceCode" id="cb8"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb8-1"><a href="test.html#cb8-1"></a>myimages&lt;-<span class="kw">list.files</span>(<span class="st">&quot;images/&quot;</span>, <span class="dt">pattern =</span> <span class="st">&quot;.png&quot;</span>, <span class="dt">full.names =</span> <span class="ot">TRUE</span>)</span>
+<span id="cb8-2"><a href="test.html#cb8-2"></a><span class="kw">include_graphics</span>(myimages)</span></code></pre></div>
 
-</div>
 </div>
 </div>
             </section>
@@ -325,8 +291,8 @@ where the variables can be collected either through direct questions or transfor
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="comps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="matrixlifes.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -358,7 +324,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/davan690/processdynamics/docs/edit/master/01-intro.Rmd",
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/11-test-vignette.Rmd",
 "text": "Edit"
 },
 "history": {

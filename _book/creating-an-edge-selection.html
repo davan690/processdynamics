@@ -4,11 +4,11 @@
 
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <title>Chapter 2 Introduction | Diagrams</title>
+  <title>Chapter 11 Creating an Edge Selection | Diagrams</title>
   <meta name="description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   <meta name="generator" content="bookdown 0.14 and GitBook 2.6.7" />
 
-  <meta property="og:title" content="Chapter 2 Introduction | Diagrams" />
+  <meta property="og:title" content="Chapter 11 Creating an Edge Selection | Diagrams" />
   <meta property="og:type" content="book" />
   
   
@@ -16,7 +16,7 @@
   
 
   <meta name="twitter:card" content="summary" />
-  <meta name="twitter:title" content="Chapter 2 Introduction | Diagrams" />
+  <meta name="twitter:title" content="Chapter 11 Creating an Edge Selection | Diagrams" />
   
   <meta name="twitter:description" content="This is my collection of diagrams for statistical analysis in R. These process diagrams use the R package DiagrammeR and others referenced in appendix and in code." />
   
@@ -24,15 +24,15 @@
 <meta name="author" content="Anthony Davidson" />
 
 
-<meta name="date" content="2019-10-28" />
+<meta name="date" content="2019-10-17" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="apple-mobile-web-app-capable" content="yes" />
   <meta name="apple-mobile-web-app-status-bar-style" content="black" />
   
   
-<link rel="prev" href="index.html"/>
-<link rel="next" href="comps.html"/>
+<link rel="prev" href="creating-a-node-selection.html"/>
+<link rel="next" href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html"/>
 <script src="libs/jquery-2.2.3/jquery.min.js"></script>
 <link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
 <link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
@@ -54,12 +54,6 @@
 <script src="libs/viz-0.3/viz.js"></script>
 <link href="libs/DiagrammeR-styles-0.2/styles.css" rel="stylesheet" />
 <script src="libs/grViz-binding-1.0.1/grViz.js"></script>
-<script src="libs/d3-3.3.8/d3.min.js"></script>
-<script src="libs/dagre-0.4.0/dagre-d3.min.js"></script>
-<link href="libs/mermaid-0.3.0/dist/mermaid.css" rel="stylesheet" />
-<script src="libs/mermaid-0.3.0/dist/mermaid.slim.min.js"></script>
-<script src="libs/chromatography-0.1/chromatography.js"></script>
-<script src="libs/DiagrammeR-binding-1.0.1/DiagrammeR.js"></script>
 
 
 <style type="text/css">
@@ -222,12 +216,9 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
 <li class="chapter" data-level="9.2.4" data-path="matrixlifes.html"><a href="matrixlifes.html#mice-rats-possums-and-stoats-1"><i class="fa fa-check"></i><b>9.2.4</b> Mice, rats, possums and stoats</a></li>
 </ul></li>
 </ul></li>
-<li class="chapter" data-level="10" data-path="test.html"><a href="test.html"><i class="fa fa-check"></i><b>10</b> test</a><ul>
-<li class="chapter" data-level="10.1" data-path="test.html"><a href="test.html#explaining-figure"><i class="fa fa-check"></i><b>10.1</b> explaining figure</a></li>
-<li class="chapter" data-level="10.2" data-path="test.html"><a href="test.html#thumbnails-html-code"><i class="fa fa-check"></i><b>10.2</b> Thumbnails html code</a></li>
-<li class="chapter" data-level="10.3" data-path="test.html"><a href="test.html#socials"><i class="fa fa-check"></i><b>10.3</b> socials</a></li>
-<li class="chapter" data-level="10.4" data-path="test.html"><a href="test.html#include-a-list-of-images"><i class="fa fa-check"></i><b>10.4</b> Include a list of images??</a></li>
-</ul></li>
+<li class="chapter" data-level="10" data-path="creating-a-node-selection.html"><a href="creating-a-node-selection.html"><i class="fa fa-check"></i><b>10</b> Creating a Node Selection</a></li>
+<li class="chapter" data-level="11" data-path="creating-an-edge-selection.html"><a href="creating-an-edge-selection.html"><i class="fa fa-check"></i><b>11</b> Creating an Edge Selection</a></li>
+<li class="chapter" data-level="12" data-path="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html"><a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html"><i class="fa fa-check"></i><b>12</b> Selecting the Last Node or Edge in an NDF or EDF</a></li>
 <li class="divider"></li>
 <li><a href="https://github.com/davan690/processdynamics" target="blank">Published with bookdown</a></li>
 
@@ -248,85 +239,62 @@ code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warni
           <div class="page-inner">
 
             <section class="normal" id="section-">
-<div id="intro" class="section level1">
-<h1><span class="header-section-number">Chapter 2</span> Introduction</h1>
-<p>Conceptial diagrams are vital for understanding processes and developing incremetal science, however, there seems to be very few packages or other software that aligns with the literature in how and when these diagrams should be developed.</p>
-<p>This book uses <code>R</code> and the core packages <a href="https://cran.r-project.org/web/packages/DiagrammeR/index.html"><code>diagrammeR</code></a>.</p>
-<p>There is a great resource written by the author <a href="https://rich-iannone.github.io/DiagrammeR/index.html">here</a> but I am still working out overall how the package in R works.
-- A good explaination of the features <a href="https://rich-iannone.github.io/DiagrammeR/index.html#features">here</a></p>
-<div id="resources" class="section level2">
-<h2><span class="header-section-number">2.1</span> Resources</h2>
-<p>The general concept of the package I am using is very simple but the code looks intemidating:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb1-1"><a href="intro.html#cb1-1"></a><span class="kw">grViz</span>(<span class="st">&quot;</span></span>
-<span id="cb1-2"><a href="intro.html#cb1-2"></a><span class="st">digraph boxes_and_circles {</span></span>
-<span id="cb1-3"><a href="intro.html#cb1-3"></a></span>
-<span id="cb1-4"><a href="intro.html#cb1-4"></a><span class="st">  # a &#39;graph&#39; statement</span></span>
-<span id="cb1-5"><a href="intro.html#cb1-5"></a><span class="st">  graph [overlap = true, fontsize = 10]</span></span>
-<span id="cb1-6"><a href="intro.html#cb1-6"></a></span>
-<span id="cb1-7"><a href="intro.html#cb1-7"></a><span class="st">  # several &#39;node&#39; statements</span></span>
-<span id="cb1-8"><a href="intro.html#cb1-8"></a><span class="st">  node [shape = box,</span></span>
-<span id="cb1-9"><a href="intro.html#cb1-9"></a><span class="st">        fontname = Helvetica]</span></span>
-<span id="cb1-10"><a href="intro.html#cb1-10"></a><span class="st">  &#39;box&#39;; &#39;shape&#39;</span></span>
-<span id="cb1-11"><a href="intro.html#cb1-11"></a></span>
-<span id="cb1-12"><a href="intro.html#cb1-12"></a><span class="st">  node [shape = circle,</span></span>
-<span id="cb1-13"><a href="intro.html#cb1-13"></a><span class="st">        fixedsize = true,</span></span>
-<span id="cb1-14"><a href="intro.html#cb1-14"></a><span class="st">        width = 0.9] // sets as circles</span></span>
-<span id="cb1-15"><a href="intro.html#cb1-15"></a><span class="st">  &#39;shape2&#39;; &#39;circles&#39;</span></span>
-<span id="cb1-16"><a href="intro.html#cb1-16"></a></span>
-<span id="cb1-17"><a href="intro.html#cb1-17"></a><span class="st">  node [shape = circle,</span></span>
-<span id="cb1-18"><a href="intro.html#cb1-18"></a><span class="st">        fixedsize = true,</span></span>
-<span id="cb1-19"><a href="intro.html#cb1-19"></a><span class="st">        width = 0.9] // sets as circles</span></span>
-<span id="cb1-20"><a href="intro.html#cb1-20"></a><span class="st">  &#39;join&#39;; &#39;arrow&#39;</span></span>
-<span id="cb1-21"><a href="intro.html#cb1-21"></a><span class="st">  </span></span>
-<span id="cb1-22"><a href="intro.html#cb1-22"></a><span class="st">  # several &#39;edge&#39; statements</span></span>
-<span id="cb1-23"><a href="intro.html#cb1-23"></a><span class="st">  join-&gt;arrow</span></span>
-<span id="cb1-24"><a href="intro.html#cb1-24"></a><span class="st">}</span></span>
-<span id="cb1-25"><a href="intro.html#cb1-25"></a><span class="st">&quot;</span>)</span></code></pre></div>
-<div id="htmlwidget-4df462d606f177af0aa7" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-4df462d606f177af0aa7">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  \"box\"; \"shape\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  \"shape2\"; \"circles\"\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  \"join\"; \"arrow\"\n  \n  # several \"edge\" statements\n  join->arrow\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-</div>
-<div id="my-notes" class="section level2">
-<h2><span class="header-section-number">2.2</span> My notes</h2>
-<p>For example, you might like to think of a simple statistical regression with a single <code>y</code> and <code>x</code>as:</p>
-<p><span class="math display">\[ y_i = \beta_0 + \beta_1(x_i) + error_i \]</span>
-And if this was to be diagramatically represented it could be describled like so with the following descriptions:</p>
-<p><em>1:</em> We are proposing that <span class="math inline">\(y_i\)</span> is directly effected by <span class="math inline">\(x_i\)</span>.</p>
-<div id="htmlwidget-fd986a6b2aab61f89d89" style="width:672px;height:480px;" class="grViz html-widget"></div>
-<script type="application/json" data-for="htmlwidget-fd986a6b2aab61f89d89">{"x":{"diagram":"\ndigraph boxes_and_circles {\n\n  # a \"graph\" statement\n  graph [overlap = true, fontsize = 10]\n\n  # several \"node\" statements\n  node [shape = box,\n        fontname = Helvetica]\n  y; x\n\n  node [shape = circle,\n        fixedsize = true,\n        width = 0.9] // sets as circles\n  error; \"b0\" \n  \n  # several \"edge\" statements\n  y->x; y->\"b0\"\n}\n","config":{"engine":"dot","options":null}},"evals":[],"jsHooks":[]}</script>
-<div id="examples" class="section level3">
-<h3><span class="header-section-number">2.2.1</span> Examples</h3>
-<p>This info I think is interesting but haven’t investigated it much yet.</p>
-</div>
-<div id="math-insert" class="section level3">
-<h3><span class="header-section-number">2.2.2</span> Math insert</h3>
-<p>Here is an example of inserting math equations into <code>diagrammeR</code> using mathJax??</p>
-<pre><code>## 
-## &gt; library(DiagrammeR)
-## 
-## &gt; add_mathjax(grViz(&quot;\ndigraph G {\n  A [label=\&quot;$\\\\cos (2\\\\theta) = \\\\cos^2 \\\\theta - \\\\sin^2 \\\\theta$\&quot;];\n  A -&gt; B;\n}\n&quot;))</code></pre>
-</div>
-<div id="kol-but-not-working" class="section level3">
-<h3><span class="header-section-number">2.2.3</span> Kol but not working</h3>
-</div>
-<div id="mixed-models" class="section level3">
-<h3><span class="header-section-number">2.2.4</span> Mixed models</h3>
-<p>Mixed models essentially start with sample mean differences between groups and then add additional complexity in favour of poor fitting models.</p>
-<p>You can write out models and variable relationships using statistical equations such as:</p>
-<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i)\]</span>
-where the variables can be collected either through direct questions or transformed data from the orginal questions. What does it look like in a diagram explaining how the variables are proposed to be similar? Example below:</p>
-<p>For example you might think that generally individuals that …</p>
-<p><span class="math display">\[ outcome = \beta_0 + \beta_1(sex_i) + \beta(age_i) + error_i \]</span></p>
-
-</div>
-</div>
+<div id="creating-an-edge-selection" class="section level1">
+<h1><span class="header-section-number">Chapter 11</span> Creating an Edge Selection</h1>
+<p>Selecting edges in a graph is done in a manner quite similar to selecting nodes. The primary means for targeting a specific edges is through any available edge attributes (e.g., <code>rel</code>, styling attributes such as <code>color</code>, or arbitrary data values available for edges).</p>
+<p>We will start by creating a graph with four nodes and four edges. The edges will have an edge attribute called <code>data</code> that contains numeric values.</p>
+<div class="sourceCode" id="cb10"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb10-1"><a href="creating-an-edge-selection.html#cb10-1"></a><span class="co"># Create a node data frame</span></span>
+<span id="cb10-2"><a href="creating-an-edge-selection.html#cb10-2"></a>ndf &lt;-<span class="st"> </span><span class="kw">create_node_df</span>(<span class="dt">n =</span> <span class="dv">4</span>)</span>
+<span id="cb10-3"><a href="creating-an-edge-selection.html#cb10-3"></a></span>
+<span id="cb10-4"><a href="creating-an-edge-selection.html#cb10-4"></a><span class="co"># Create an edge data frame</span></span>
+<span id="cb10-5"><a href="creating-an-edge-selection.html#cb10-5"></a>edf &lt;-</span>
+<span id="cb10-6"><a href="creating-an-edge-selection.html#cb10-6"></a><span class="st">  </span><span class="kw">create_edge_df</span>(</span>
+<span id="cb10-7"><a href="creating-an-edge-selection.html#cb10-7"></a>    <span class="dt">from =</span> <span class="kw">c</span>(<span class="dv">1</span>, <span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>),</span>
+<span id="cb10-8"><a href="creating-an-edge-selection.html#cb10-8"></a>      <span class="dt">to =</span> <span class="kw">c</span>(<span class="dv">2</span>, <span class="dv">3</span>, <span class="dv">4</span>, <span class="dv">1</span>),</span>
+<span id="cb10-9"><a href="creating-an-edge-selection.html#cb10-9"></a>    <span class="dt">data =</span> <span class="kw">c</span>(</span>
+<span id="cb10-10"><a href="creating-an-edge-selection.html#cb10-10"></a>      <span class="fl">8.6</span>, <span class="fl">2.8</span>, <span class="fl">6.3</span>, <span class="fl">4.5</span>)</span>
+<span id="cb10-11"><a href="creating-an-edge-selection.html#cb10-11"></a>  )</span>
+<span id="cb10-12"><a href="creating-an-edge-selection.html#cb10-12"></a></span>
+<span id="cb10-13"><a href="creating-an-edge-selection.html#cb10-13"></a><span class="co"># Create a new graph from</span></span>
+<span id="cb10-14"><a href="creating-an-edge-selection.html#cb10-14"></a><span class="co"># the NDF and EDF</span></span>
+<span id="cb10-15"><a href="creating-an-edge-selection.html#cb10-15"></a>graph &lt;-<span class="st"> </span></span>
+<span id="cb10-16"><a href="creating-an-edge-selection.html#cb10-16"></a><span class="st">  </span><span class="kw">create_graph</span>(</span>
+<span id="cb10-17"><a href="creating-an-edge-selection.html#cb10-17"></a>    <span class="dt">nodes_df =</span> ndf,</span>
+<span id="cb10-18"><a href="creating-an-edge-selection.html#cb10-18"></a>    <span class="dt">edges_df =</span> edf</span>
+<span id="cb10-19"><a href="creating-an-edge-selection.html#cb10-19"></a>  )</span>
+<span id="cb10-20"><a href="creating-an-edge-selection.html#cb10-20"></a></span>
+<span id="cb10-21"><a href="creating-an-edge-selection.html#cb10-21"></a><span class="co"># Inspect the graph&#39;s EDF</span></span>
+<span id="cb10-22"><a href="creating-an-edge-selection.html#cb10-22"></a>graph <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">get_edge_df</span>()</span>
+<span id="cb10-23"><a href="creating-an-edge-selection.html#cb10-23"></a><span class="co">#&gt;   id from to  rel data</span></span>
+<span id="cb10-24"><a href="creating-an-edge-selection.html#cb10-24"></a><span class="co">#&gt; 1  1    1  2 &lt;NA&gt;  8.6</span></span>
+<span id="cb10-25"><a href="creating-an-edge-selection.html#cb10-25"></a><span class="co">#&gt; 2  2    2  3 &lt;NA&gt;  2.8</span></span>
+<span id="cb10-26"><a href="creating-an-edge-selection.html#cb10-26"></a><span class="co">#&gt; 3  3    3  4 &lt;NA&gt;  6.3</span></span>
+<span id="cb10-27"><a href="creating-an-edge-selection.html#cb10-27"></a><span class="co">#&gt; 4  4    4  1 &lt;NA&gt;  4.5</span></span></code></pre></div>
+<p>The following example shows how to create selections of edges based on a logical expression operating on a collection of numeric values in the <code>data</code> attribute.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb11-1"><a href="creating-an-edge-selection.html#cb11-1"></a><span class="co"># Select edges where the `data`</span></span>
+<span id="cb11-2"><a href="creating-an-edge-selection.html#cb11-2"></a><span class="co"># attribute has a value</span></span>
+<span id="cb11-3"><a href="creating-an-edge-selection.html#cb11-3"></a><span class="co"># greater than 5.0</span></span>
+<span id="cb11-4"><a href="creating-an-edge-selection.html#cb11-4"></a>graph &lt;-</span>
+<span id="cb11-5"><a href="creating-an-edge-selection.html#cb11-5"></a><span class="st">  </span>graph <span class="op">%&gt;%</span></span>
+<span id="cb11-6"><a href="creating-an-edge-selection.html#cb11-6"></a><span class="st">  </span><span class="kw">select_edges</span>(</span>
+<span id="cb11-7"><a href="creating-an-edge-selection.html#cb11-7"></a>    <span class="dt">conditions =</span> data <span class="op">&gt;</span><span class="st"> </span><span class="fl">5.0</span></span>
+<span id="cb11-8"><a href="creating-an-edge-selection.html#cb11-8"></a>  )</span>
+<span id="cb11-9"><a href="creating-an-edge-selection.html#cb11-9"></a><span class="co">#&gt; `select_edges()` INFO: created a new selection of 2 edges</span></span>
+<span id="cb11-10"><a href="creating-an-edge-selection.html#cb11-10"></a></span>
+<span id="cb11-11"><a href="creating-an-edge-selection.html#cb11-11"></a><span class="co"># Get the graph&#39;s current selection</span></span>
+<span id="cb11-12"><a href="creating-an-edge-selection.html#cb11-12"></a><span class="co"># of edges as a table</span></span>
+<span id="cb11-13"><a href="creating-an-edge-selection.html#cb11-13"></a>graph <span class="op">%&gt;%</span><span class="st"> </span><span class="kw">get_edge_df_ws</span>()</span>
+<span id="cb11-14"><a href="creating-an-edge-selection.html#cb11-14"></a><span class="co">#&gt;   id from to  rel data</span></span>
+<span id="cb11-15"><a href="creating-an-edge-selection.html#cb11-15"></a><span class="co">#&gt; 1  1    1  2 &lt;NA&gt;  8.6</span></span>
+<span id="cb11-16"><a href="creating-an-edge-selection.html#cb11-16"></a><span class="co">#&gt; 2  3    3  4 &lt;NA&gt;  6.3</span></span></code></pre></div>
 </div>
             </section>
 
           </div>
         </div>
       </div>
-<a href="index.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
-<a href="comps.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+<a href="creating-a-node-selection.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="selecting-the-last-node-or-edge-in-an-ndf-or-edf.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
     </div>
   </div>
 <script src="libs/gitbook-2.6.7/js/app.min.js"></script>
@@ -358,7 +326,7 @@ gitbook.start({
 "size": 2
 },
 "edit": {
-"link": "https://github.com/davan690/processdynamics/docs/edit/master/01-intro.Rmd",
+"link": "https://github.com/davan690/processdynamics/docs/edit/master/11-test-vignette.Rmd",
 "text": "Edit"
 },
 "history": {
@@ -374,20 +342,6 @@ gitbook.start({
 });
 </script>
 
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-  (function () {
-    var script = document.createElement("script");
-    script.type = "text/javascript";
-    var src = "true";
-    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
-    if (location.protocol !== "file:")
-      if (/^https?:/.test(src))
-        src = src.replace(/^https?:/, '');
-    script.src = src;
-    document.getElementsByTagName("head")[0].appendChild(script);
-  })();
-</script>
 </body>
 
 </html>

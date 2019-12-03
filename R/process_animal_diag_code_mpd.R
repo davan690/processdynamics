@@ -1,3 +1,4 @@
+library(DiagrammeR)
 grViz("
 digraph boxes_and_circles {
 
@@ -6,21 +7,19 @@ digraph boxes_and_circles {
 
   # several 'node' statements
   node [shape = box,
-        fontname = Helvetica,
-        fill = grey50]
-  Scrap
+        fontname = Helvetica]
+  rats; mice; stoats; possums
 
   node [shape = circle,
         fixedsize = true,
         width = 0.9] // sets as circles
-  revtools; rmarkdown; report
-  
-  node [shape = triangle,
-        fixedsize = true,
-        width = 0.9] // sets as circles
-  data
+  seed
 
   # several 'edge' statements
-  RStudio->GIT RStudio->R RStudio->Python R->Python GIT->www
+  possums->rats possums->stoats
+  stoats->mice stoats->rats
+  rats->mice mice->rats
+  rats->seed mice->seed possums->seed
 }
 ")
+```
