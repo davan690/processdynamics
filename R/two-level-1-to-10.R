@@ -1,7 +1,9 @@
 library(DiagrammeR)
 library(DiagrammeRsvg)
 library(diagram)
+library(gistr)
 
+# gistr::gist("davan690/path_local_gist")
 grViz("
 digraph a_nice_graph {
 
