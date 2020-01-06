@@ -8,9 +8,11 @@ Phi <- matrix(c(1,.35,0,0,0,
                 0,.5, 1,0,0,
                 .7,-.6, 0, 1,0,
                 .0, 0, .4,0,1 ),ncol=5,byrow=TRUE)
+
 #now draw a number of models 
 f1 <- structure.diagram(fx,main = "A measurement model for x")
 f2 <- structure.diagram(fx,Phi, main = "A measurement model for x")  
 f3 <- structure.diagram(fy=fy, main = "A measurement model for y") 
 f4 <- structure.diagram(fx,Phi,fy,main="A structural path diagram")            
 f5 <- structure.diagram(fx,Phi,fy,main="A structural path diagram",errors=TRUE)
+
